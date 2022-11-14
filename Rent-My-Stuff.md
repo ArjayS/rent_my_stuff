@@ -4,13 +4,13 @@ Is a site that allows you to rent your items to other members.
 
 ## User Stories
 
--> A User can register an account
--> A User can login an account
--> A User can store their item for rent with details (name, descritption, image, price, location, status (rented or ready for renting (qr code)))
--> A User can generate a QR code for renting the item (This QR code is sent to a link that immediately rents the item)
--> A User can rent an item
--> A User can allow a renter to immediately rent their product by generating a qr code
--> A User can set an item price
+- A User can register an account
+- A User can login an account
+- A User can store their item for rent with details (name, descritption, image, price, location, status (rented or ready for renting (qr code)))
+- A User can generate a QR code for renting the item (This QR code is sent to a link that immediately rents the item)
+- A User can rent an item
+- A User can allow a renter to immediately rent their product by generating a qr code
+- A User can set an item price
 
 ## ERD Details
 
