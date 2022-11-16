@@ -4,8 +4,6 @@ Is a site that allows you to rent your items to other members.
 
 ## Miro - Project Planning Breakdown
 
-[Test Link](https://miro.com/app/board/uXjVPekaWGA=/?share_link_id=345380615366)
-
 ## User Stories
 
 - A User can register an account
