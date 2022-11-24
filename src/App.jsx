@@ -1,26 +1,27 @@
 import React from "react";
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ItemsHomePage from "./routes/ItemsHomePage";
+import ItemDetailsPage from "./routes/ItemDetailsPage";
+import UsersPage from "./routes/UsersPage";
+import UserDetailsPage from "./routes/UserDetailsPage";
+import PersonalUserPage from "./routes/PersonalUserPage";
 
 const App = () => {
   return (
-    <div>
-      <h1 class="text-3xl font-bold underline">App</h1>
+    // <RestaurantsContextProvider>
+    <div className="container">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/items" element={<ItemsHomePage />} />
+          <Route path="/items/item/:id" element={<ItemDetailsPage />} />
+          <Route path="/users" element={<UsersPage />} />
+          <Route path="/users/user/:id" element={<UserDetailsPage />} />
+          <Route path="/users/:id" element={<PersonalUserPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
+    // </RestaurantsContextProvider>
   );
-  // <RestaurantsContextProvider>
-  //   <div className="container">
-  //     <BrowserRouter>
-  //       <Routes>
-  //         <Route path="/" element={<HomePage />} />
-  //         <Route path="/restaurants/:id" element={<RestaurantDetailPage />} />
-  //         <Route
-  //           path="/restaurants/:id/update"
-  //           element={<UpdateRestaurantPage />}
-  //         />
-  //       </Routes>
-  //     </BrowserRouter>
-  //   </div>
-  // </RestaurantsContextProvider>
 };
 
 export default App;
