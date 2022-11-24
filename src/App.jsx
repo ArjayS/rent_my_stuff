@@ -2,7 +2,11 @@ import React from "react";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <div>
+      <h1 class="text-3xl font-bold underline">App</h1>
+    </div>
+  );
   // <RestaurantsContextProvider>
   //   <div className="container">
   //     <BrowserRouter>
