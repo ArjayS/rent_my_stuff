@@ -3,7 +3,7 @@ import React from "react";
 const PersonalUserPage = () => {
   return (
     <div>
-      <div>Personal Users Page</div>
+      <h1 className="text-3xl font-bold underline">Personal User Page</h1>
     </div>
   );
 };
