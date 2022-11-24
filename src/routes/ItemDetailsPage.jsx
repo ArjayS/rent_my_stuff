@@ -3,7 +3,7 @@ import React from "react";
 const ItemDetailsPage = () => {
   return (
     <div>
-      <div>Item Details Page</div>
+      <h1 className="text-3xl font-bold underline">ItemsDetailsPage</h1>
     </div>
   );
 };
