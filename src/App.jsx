@@ -9,7 +9,7 @@ import PersonalUserPage from "./routes/PersonalUserPage";
 const App = () => {
   return (
     // <RestaurantsContextProvider>
-    <div className="container">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/items" element={<ItemsHomePage />} />
