@@ -2,11 +2,13 @@ import React, { useState, createContext, useEffect } from "react";
 import ItemFinder from "../apis/ItemFinder";
 
 export const RentMyStuffContext = createContext();
+
 export const RentMyStuffContextProvider = (props) => {
   const [input, setInput] = useState("");
   const [itemListDefault, setItemListDefault] = useState();
   const [itemsList, setItemsList] = useState([]);
 
+  // Item Search feature <-----------------------------------------------------
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -20,7 +22,7 @@ export const RentMyStuffContextProvider = (props) => {
     };
 
     fetchData();
-  }, [setItemsList, setItemListDefault]);
+  }, []);
 
   const updateInput = async (input) => {
     const filtered = itemListDefault.filter((itemDefault) => {
@@ -30,6 +32,7 @@ export const RentMyStuffContextProvider = (props) => {
     setInput(input);
     setItemsList(filtered);
   };
+  // <--------------------------------------------------------------------------
 
   return (
     <RentMyStuffContext.Provider
