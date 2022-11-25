@@ -2,9 +2,13 @@ import React, { useContext, useEffect } from "react";
 import ImageOne from "../images/shirt_image.jpg";
 import ItemFinder from "../apis/ItemFinder";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import StarRating from "./StarRating";
+import { useNavigate } from "react-router-dom";
 
 const GeneraltemsList = (props) => {
   const { items, setItems } = useContext(RentMyStuffContext);
+
+  let navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,6 +23,32 @@ const GeneraltemsList = (props) => {
     fetchData();
   }, []);
 
+  const renderRating = (item) => {
+    if (!item.count) {
+      return (
+        <span className="text-sm font-medium text-gray-700">0 reviews</span>
+      );
+    }
+    return (
+      <>
+        <h3 className="text-sm font-medium text-gray-700">
+          <a href="#">
+            <span aria-hidden="true" className="absolute inset-0"></span>(
+            {item.count}) reviews
+          </a>
+        </h3>
+        <StarRating key={item.id} rating={item.average_rating} />
+        <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+          {item.average_rating} out of 5
+        </p>
+      </>
+    );
+  };
+
+  const handleItemSelect = (id) => {
+    navigate(`/items/${id}/item`);
+  };
+
   return (
     <div>
       <div className="bg-white">
@@ -32,7 +62,11 @@ const GeneraltemsList = (props) => {
             {items &&
               items.map((item) => {
                 return (
-                  <div key={item.id} className="group relative">
+                  <div
+                    key={item.id}
+                    className="group relative"
+                    onClick={() => handleItemSelect(item.id)}
+                  >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
                         src={ImageOne}
@@ -54,12 +88,15 @@ const GeneraltemsList = (props) => {
                         <p className="mt-1 text-sm text-gray-500">
                           {item.item_location}
                         </p>
-                        <p className="mt-1 text-sm text-gray-900">
-                          {item.item_base_price}
-                        </p>
+                        <div className="mt-1 text-sm text-gray-900">
+                          <p className="mt-1 text-sm text-gray-900">
+                            Price: ${item.item_base_price}
+                          </p>
+                        </div>
                       </div>
                       <div>
-                        <h3 className="text-sm text-gray-700">
+                        {renderRating(item)}
+                        {/* <h3 className="text-sm text-gray-700">
                           <a href="#">
                             <span
                               aria-hidden="true"
@@ -70,7 +107,7 @@ const GeneraltemsList = (props) => {
                         </h3>
                         <p className="mt-1 text-sm font-medium text-gray-900">
                           ({item.count}) Reviews
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   </div>
