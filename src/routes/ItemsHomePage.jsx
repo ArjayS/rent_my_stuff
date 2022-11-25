@@ -1,11 +1,11 @@
 import React from "react";
 import GeneraltemsList from "../components/GeneraltemsList";
-import Header from "../components/Header";
+import StoreNavigation from "../components/StoreNavigation";
 
 const ItemsHomePage = () => {
   return (
     <div>
-      <Header />
+      <StoreNavigation />
       <GeneraltemsList />
     </div>
   );

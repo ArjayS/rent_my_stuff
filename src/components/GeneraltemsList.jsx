@@ -1,27 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import ImageOne from "../images/shirt_image.jpg";
-import ItemFinder from "../apis/ItemFinder";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 
-const GeneraltemsList = (props) => {
-  const { items, setItems } = useContext(RentMyStuffContext);
+const GeneraltemsList = () => {
+  const { itemsList } = useContext(RentMyStuffContext);
 
   let navigate = useNavigate();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await ItemFinder.get("/");
-
-        setItems(response.data.data.items);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const renderRating = (item) => {
     if (!item.count) {
@@ -32,10 +18,10 @@ const GeneraltemsList = (props) => {
     return (
       <>
         <h3 className="text-sm font-medium text-gray-700">
-          <a href="#">
+          <span>
             <span aria-hidden="true" className="absolute inset-0"></span>
             {item.count} reviews
-          </a>
+          </span>
         </h3>
         <StarRating key={item.id} rating={item.average_rating} />
         <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
@@ -59,8 +45,8 @@ const GeneraltemsList = (props) => {
 
           <div className="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* CARD (VANILLA) NOT PROPPERLY DESIGNED YET */}
-            {items &&
-              items.map((item) => {
+            {itemsList &&
+              itemsList.map((item) => {
                 return (
                   <div
                     key={item.id}
@@ -77,13 +63,13 @@ const GeneraltemsList = (props) => {
                     <div className="mt-4 flex justify-between">
                       <div>
                         <h3 className="text-sm text-gray-700">
-                          <a href="#">
+                          <span>
                             <span
                               aria-hidden="true"
                               className="absolute inset-0"
                             ></span>
                             {item.item_name}
-                          </a>
+                          </span>
                         </h3>
                         <p className="mt-1 text-sm text-gray-500">
                           {item.item_location}
@@ -94,21 +80,7 @@ const GeneraltemsList = (props) => {
                           </p>
                         </div>
                       </div>
-                      <div>
-                        {renderRating(item)}
-                        {/* <h3 className="text-sm text-gray-700">
-                          <a href="#">
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0"
-                            ></span>
-                            {item.average_rating}
-                          </a>
-                        </h3>
-                        <p className="mt-1 text-sm font-medium text-gray-900">
-                          ({item.count}) Reviews
-                        </p> */}
-                      </div>
+                      <div>{renderRating(item)}</div>
                     </div>
                   </div>
                 );
