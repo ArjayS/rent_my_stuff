@@ -1,0 +1,44 @@
+import React from "react";
+
+export default function MyStuff(props) {
+  
+  const itemsList = () => {
+    props.map((data,id) =>{
+      if(data.length === 0){
+        return <h3 class="text-sm text-gray-700">
+          <span aria-hidden="true" class="absolute inset-0"></span>
+          You don't have items. Please add one.
+      </h3>
+      } else {
+        return<div key={id}>
+        <div class="group relative">
+          <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+          </div>
+          <div class="mt-4 flex justify-between">
+          <div>
+          <h3 class="text-sm text-gray-700">
+            <a href="#">
+              <span aria-hidden="true" class="absolute inset-0"></span>
+              {data.item_name}
+            </a>
+          </h3>
+          <p class="mt-1 text-sm text-gray-500">{data.item_description}</p>
+        </div>
+        <p class="text-sm font-medium text-gray-900">${data.item_base_price}</p>
+      </div>
+      <form>
+      <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Item Bids</button>
+      </form>
+      <form>
+      <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Rented</button>
+      </form>
+    </div>
+    </div>
+      }
+    })
+  }
+
+  return(
+    {itemsList}
+  )
+}
