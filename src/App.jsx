@@ -5,11 +5,11 @@ import ItemDetailsPage from "./routes/ItemDetailsPage";
 import UsersPage from "./routes/UsersPage";
 import UserDetailsPage from "./routes/UserDetailsPage";
 import PersonalUserPage from "./routes/PersonalUserPage";
+import { RentMyStuffContextProvider } from "./context/RentMyStuffContext";
 
 const App = () => {
   return (
-    // <RestaurantsContextProvider>
-    <div className="container">
+    <RentMyStuffContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ItemsHomePage />} />
@@ -19,8 +19,7 @@ const App = () => {
           <Route path="/users/:id" element={<PersonalUserPage />} />
         </Routes>
       </BrowserRouter>
-    </div>
-    // </RestaurantsContextProvider>
+    </RentMyStuffContextProvider>
   );
 };
 
