@@ -5,6 +5,7 @@ import ItemDetailsPage from "./routes/ItemDetailsPage";
 import UsersPage from "./routes/UsersPage";
 import UserDetailsPage from "./routes/UserDetailsPage";
 import PersonalUserPage from "./routes/PersonalUserPage";
+import NewItemPage from "./routes/NewItemPage";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/items" element={<ItemsHomePage />} />
           <Route path="/items/item/:id" element={<ItemDetailsPage />} />
+          <Route path="/items/new" element={<NewItemPage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/users/user/:id" element={<UserDetailsPage />} />
           <Route path="/users/:id" element={<PersonalUserPage />} />

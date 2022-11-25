@@ -4,6 +4,7 @@ import axios from "axios";
 import StuffData from "../api/StuffData";
 import MyListofStuff from "../components/My stuff/MyListOfStuff";
 import StuffIRented from "../components/My stuff/StuffIRented";
+import NewItemModal from "../components/My stuff/NewItemModal";
 
 
 
@@ -39,6 +40,7 @@ const PersonalUserPage = () => {
 
   return(
   <>
+  <NewItemModal/>
    <div class="bg-white">
     <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Stuff</h2>
