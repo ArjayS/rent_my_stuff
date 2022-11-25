@@ -33,8 +33,8 @@ const GeneraltemsList = (props) => {
       <>
         <h3 className="text-sm font-medium text-gray-700">
           <a href="#">
-            <span aria-hidden="true" className="absolute inset-0"></span>(
-            {item.count}) reviews
+            <span aria-hidden="true" className="absolute inset-0"></span>
+            {item.count} reviews
           </a>
         </h3>
         <StarRating key={item.id} rating={item.average_rating} />
