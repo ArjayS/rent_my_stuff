@@ -12,6 +12,8 @@ const PersonalUserPage = () => {
 
   const [itemData, setItemData] = useState([])
   const [rentalData, setRentalData] = useState([])
+  const [showModal, setShowModal] = useState(false)
+
 
   useEffect(()=>{
     const fetchItemData = async () => {
@@ -37,16 +39,36 @@ const PersonalUserPage = () => {
     fetchRentalData()
   },[])
 
+  const handleClick = e => {
+    setShowModal(true)
+  }
+
+  const closeModal=(value) =>{
+    setShowModal(value)
+    console.log("show modal2", showModal)
+  }
+
+  console.log("show modal1:", showModal)
+
 
   return(
   <>
-  <NewItemModal/>
+  {
+    showModal && (
+    <NewItemModal
+      closeModal={closeModal}
+    />
+    )
+  }
    <div class="bg-white">
     <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
     <h2 class="text-2xl font-bold tracking-tight text-gray-900">My Stuff</h2>
-    <form>
+    {/* <form>
     <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add item</button>
-    </form>
+    </form> */}
+
+    <button onClick={handleClick} class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add item</button>
+
     <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
     <MyListofStuff 
       items={itemData}

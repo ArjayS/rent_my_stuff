@@ -4,9 +4,10 @@ import NewItemForm from './NewItem'
 import StuffData from '../../api/StuffData'
 
 
-export default function NewItemModal() {
-  const [open, setOpen] = useState(false)
-
+export default function NewItemModal({closeModal}) {
+  
+  const [open, setOpen] = useState(true)
+  console.log("open state:", open)
   const cancelButtonRef = useRef(null)
 
   const [ItemName, setItemName] = useState("")
@@ -17,6 +18,7 @@ export default function NewItemModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    closeModal(false)
     try {
       const response = await StuffData.post("items/", {
         owner_id: 2, 
@@ -28,7 +30,7 @@ export default function NewItemModal() {
         item_description: ItemDescription
       })
       console.log(response)
-      setOpen(false)
+      // setOpen(false)
     } catch (err){
 
     }}
