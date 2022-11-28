@@ -5,11 +5,12 @@ import ItemDetailsPage from "./routes/ItemDetailsPage";
 import UsersPage from "./routes/UsersPage";
 import UserDetailsPage from "./routes/UserDetailsPage";
 import PersonalUserPage from "./routes/PersonalUserPage";
+import NewItemPage from "./routes/NewItemPage";
 
 const App = () => {
   return (
     // <RestaurantsContextProvider>
-    <div className="container">
+    <div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ItemsHomePage />} />
