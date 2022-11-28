@@ -5,6 +5,6 @@ import NewItemModal from "../components/My stuff/NewItemModal";
 
 export default function NewItemPage (){
   return(
-    <NewItemModal />
+    <NewItemModal/>
   )
 }

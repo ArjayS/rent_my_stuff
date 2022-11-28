@@ -19,19 +19,20 @@ const PersonalUserPage = () => {
     const fetchItemData = async () => {
       try {
         const response = await StuffData.get("/users/2/items")
-        console.log(response.data.data.items)
+        console.log("items:",response.data.data.items)
         setItemData(response.data.data.items)
       } catch(err){}
     }
 
     fetchItemData()
+    
   },[])
 
   useEffect(()=>{
     const fetchRentalData = async () => {
       try {
         const response = await StuffData.get("/users/2/rented")
-        console.log(response.data.data.items)
+        console.log("rentals:",response.data.data.items)
         setRentalData(response.data.data.items)
       } catch(err){}
     }
@@ -48,7 +49,6 @@ const PersonalUserPage = () => {
     console.log("show modal2", showModal)
   }
 
-  console.log("show modal1:", showModal)
 
 
   return(
@@ -84,6 +84,7 @@ const PersonalUserPage = () => {
     <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
     <StuffIRented 
       items={rentalData}
+      />
     </div>
    </div>
    </div>

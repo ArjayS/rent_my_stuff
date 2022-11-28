@@ -23,7 +23,7 @@ export default function NewItemForm() {
         item_image: ItemImage,
         item_description: ItemDescription
       })
-      console.log(response)
+      console.log("response:",response)
     } catch (err){
 
     }
