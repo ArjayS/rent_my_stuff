@@ -1,13 +1,12 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import NewItemForm from './NewItem'
 import StuffData from '../../api/StuffData'
 
 
 export default function NewItemModal({closeModal}) {
   
   const [open, setOpen] = useState(true)
-  console.log("open state:", open)
+  // console.log("open state:", open)
   const cancelButtonRef = useRef(null)
 
   const [ItemName, setItemName] = useState("")
@@ -31,7 +30,6 @@ export default function NewItemModal({closeModal}) {
       let item = response.data.data.item
       closeModal(false, item)
       console.log("response",response)
-      // setOpen(false)
     } catch (err){
 
     }}
