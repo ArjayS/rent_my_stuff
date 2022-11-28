@@ -18,7 +18,6 @@ export default function NewItemModal({closeModal}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    closeModal(false)
     try {
       const response = await StuffData.post("items/", {
         owner_id: 2, 
@@ -29,7 +28,9 @@ export default function NewItemModal({closeModal}) {
         item_image: ItemImage,
         item_description: ItemDescription
       })
-      console.log(response)
+      let item = response.data.data.item
+      closeModal(false, item)
+      console.log("response",response)
       // setOpen(false)
     } catch (err){
 
