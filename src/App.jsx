@@ -6,22 +6,23 @@ import UsersPage from "./routes/UsersPage";
 import UserDetailsPage from "./routes/UserDetailsPage";
 import PersonalUserPage from "./routes/PersonalUserPage";
 import NewItemPage from "./routes/NewItemPage";
+import { RentMyStuffContextProvider } from "./context/RentMyStuffContext";
 
 const App = () => {
   return (
-    // <RestaurantsContextProvider>
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<ItemsHomePage />} />
-          <Route path="/items/:id/item" element={<ItemDetailsPage />} />
-          <Route path="/users" element={<UsersPage />} />
-          <Route path="/users/:id/userreview" element={<UserDetailsPage />} />
-          <Route path="/users/:id" element={<PersonalUserPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-    // </RestaurantsContextProvider>
+      <RentMyStuffContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<ItemsHomePage />} />
+            <Route path="/items/:id/item" element={<ItemDetailsPage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/users/:id/userreview" element={<UserDetailsPage />} />
+            <Route path="/users/:id" element={<PersonalUserPage />} />
+          </Routes>
+        </BrowserRouter>
+      </RentMyStuffContextProvider>
+     </div>
   );
 };
 
