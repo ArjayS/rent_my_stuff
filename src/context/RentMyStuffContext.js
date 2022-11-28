@@ -7,6 +7,7 @@ export const RentMyStuffContextProvider = (props) => {
   const [input, setInput] = useState("");
   const [itemListDefault, setItemListDefault] = useState();
   const [itemsList, setItemsList] = useState([]);
+  const [selectedItem, setSelectedItem] = useState([]);
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -32,7 +33,7 @@ export const RentMyStuffContextProvider = (props) => {
     setInput(input);
     setItemsList(filtered);
   };
-  // <--------------------------------------------------------------------------
+  // <-------------------------------------------------------------------------
 
   return (
     <RentMyStuffContext.Provider
@@ -44,6 +45,8 @@ export const RentMyStuffContextProvider = (props) => {
         itemListDefault: itemListDefault,
         setItemListDefault,
         updateInput: updateInput,
+        selectedItem,
+        setSelectedItem,
       }}
     >
       {props.children}
