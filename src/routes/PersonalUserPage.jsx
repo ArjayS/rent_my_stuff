@@ -50,7 +50,16 @@ const PersonalUserPage = () => {
     // window.location.reload(false);
   };
 
-  // console.log("show modal1:", showModal);
+  const handleDelete = async (id) => {
+    try{
+      const response = await StuffData.delete(`items/${id}/item`)
+      setItemData(itemData.filter(item => {
+        return item.id !== id
+      }))
+    } catch (err){
+
+    } 
+  }
 
   return (
     <>
@@ -60,9 +69,6 @@ const PersonalUserPage = () => {
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">
             My Stuff
           </h2>
-          {/* <form>
-    <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Add item</button>
-    </form> */}
 
           <button
             onClick={handleClick}
@@ -72,7 +78,7 @@ const PersonalUserPage = () => {
           </button>
 
           <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            <MyListofStuff items={itemData} />
+            <MyListofStuff items={itemData} delete={handleDelete} />
           </div>
         </div>
 

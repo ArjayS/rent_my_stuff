@@ -9,6 +9,8 @@ export default function MyListofStuff(props){
         description={item.item_description}
         price={item.item_base_price}
         key={id}
+        id={item.id}
+        delete={props.delete}
       />
     );
   });
