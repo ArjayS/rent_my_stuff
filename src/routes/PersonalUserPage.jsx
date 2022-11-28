@@ -23,6 +23,8 @@ const PersonalUserPage = () => {
     fetchItemData();
   }, []);
 
+  console.log("item data:", itemData)
+
   useEffect(() => {
     const fetchRentalData = async () => {
       try {
@@ -77,7 +79,7 @@ const PersonalUserPage = () => {
             Add item
           </button>
 
-          <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div class="overflow-auto mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             <MyListofStuff items={itemData} delete={handleDelete} />
           </div>
         </div>

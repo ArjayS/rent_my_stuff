@@ -7,6 +7,7 @@ import UserDetailsPage from "./routes/UserDetailsPage";
 import PersonalUserPage from "./routes/PersonalUserPage";
 import NewItemPage from "./routes/NewItemPage";
 import { RentMyStuffContextProvider } from "./context/RentMyStuffContext";
+import AcceptBidsPage from "./routes/AcceptBidsPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Route path="/users" element={<UsersPage />} />
             <Route path="/users/:id/userreview" element={<UserDetailsPage />} />
             <Route path="/users/:id" element={<PersonalUserPage />} />
+            <Route path="/items/:id/bids" element={<AcceptBidsPage />} />
           </Routes>
         </BrowserRouter>
       </RentMyStuffContextProvider>
