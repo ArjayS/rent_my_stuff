@@ -12,6 +12,7 @@ export default function MyListofStuff(props){
           key={id}
           id={item.id}
           delete={props.delete}
+          image={item.item_image}
         />
 
     );

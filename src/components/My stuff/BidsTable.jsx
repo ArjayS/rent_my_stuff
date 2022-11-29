@@ -2,7 +2,7 @@ import React from "react"
 import EachBid from "./EachBid"
 
 export default function BidsTable(props){
-  // console.log("bids:",props.bids)
+  console.log("bids form bidstable:",props.bids)
   return(
 <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -29,7 +29,7 @@ export default function BidsTable(props){
             </tr>
         </thead>
         <tbody>
-            <EachBid bids={props.bids}/>
+            <EachBid bids={props.bids} approval={props.approval}/>
         </tbody>
     </table>
 </div>
