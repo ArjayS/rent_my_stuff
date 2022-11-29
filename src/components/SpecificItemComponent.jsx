@@ -131,6 +131,7 @@ const SpecificItemComponent = () => {
               </form>
 
               <ModalComponent
+                item_name={selectedItem.item_name}
                 onClose={handleOnCloseModal}
                 visible={showModalComponent}
               />
