@@ -27,17 +27,13 @@ export default function AcceptBidsPage(){
     fetchItemData();
   }, [bidsStatus]);
 
-  const updateStatus = (action) => {
-    setBidsStatus(action)
-  }
-
 
   const handleApproval = async (id, action) => {
     try {
       const response = await StuffData.patch(`reservations/reserve/${id}/approve`, {
         rsrv_approval: action,
       })
-      setBidsStatus(action)
+      setBidsStatus(action + id)
       console.log("response",response)
     } catch (err){
 
