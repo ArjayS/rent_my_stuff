@@ -10,6 +10,8 @@ export const RentMyStuffContextProvider = (props) => {
   const [itemsList, setItemsList] = useState([]);
   // Used in ItemDetailsPage
   const [selectedItem, setSelectedItem] = useState([]);
+  // Used in StoreNavigationComponent
+  const [showOptions, setShowOptions] = useState(false);
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -51,6 +53,8 @@ export const RentMyStuffContextProvider = (props) => {
         updateInputItems: updateInputItems,
         selectedItem,
         setSelectedItem,
+        showOptions,
+        setShowOptions,
       }}
     >
       {props.children}

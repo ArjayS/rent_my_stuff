@@ -33,7 +33,7 @@ const SpecificItemComponent = () => {
       <>
         <h3 className="text-sm font-medium text-gray-700">
           <span>
-            <span aria-hidden="true" className="absolute inset-0"></span>
+            <span aria-hidden="true" className="inset-0"></span>
             {selectedItem.count} reviews
           </span>
         </h3>
@@ -50,7 +50,7 @@ const SpecificItemComponent = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Item Details Page</h1>
+      <h1 className="mt-10 text-3xl font-bold underline">Item Details Page</h1>
       {/* <!--
   This example requires some changes to your config:
   
