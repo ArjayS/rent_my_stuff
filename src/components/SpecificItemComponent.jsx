@@ -1,13 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import ItemFinder from "../apis/ItemFinder";
 import StarRatingComponent from "../components/StarRatingComponent";
+import ModalComponent from "../components/ModalComponent";
 
 const SpecificItemComponent = () => {
   const { id } = useParams();
 
   const { selectedItem, setSelectedItem } = useContext(RentMyStuffContext);
+
+  const [showModalComponent, setShowModalComponent] = useState(false);
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -46,6 +49,15 @@ const SpecificItemComponent = () => {
         </p>
       </>
     );
+  };
+
+  const handleClickModal = (event) => {
+    event.preventDefault();
+    setShowModalComponent(true);
+  };
+
+  const handleOnCloseModal = () => {
+    setShowModalComponent(false);
   };
 
   return (
@@ -112,10 +124,16 @@ const SpecificItemComponent = () => {
                 <button
                   type="submit"
                   class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  onClick={handleClickModal}
                 >
                   Place a bid
                 </button>
               </form>
+
+              <ModalComponent
+                onClose={handleOnCloseModal}
+                visible={showModalComponent}
+              />
             </div>
 
             <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
