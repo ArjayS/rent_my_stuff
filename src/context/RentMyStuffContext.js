@@ -5,7 +5,7 @@ export const RentMyStuffContext = createContext();
 
 export const RentMyStuffContextProvider = (props) => {
   // Used in ItemsHomePage
-  const [input, setInput] = useState("");
+  const [inputItems, setInputItems] = useState("");
   const [itemListDefault, setItemListDefault] = useState();
   const [itemsList, setItemsList] = useState([]);
   // Used in ItemDetailsPage
@@ -13,7 +13,7 @@ export const RentMyStuffContextProvider = (props) => {
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllItemsData = async () => {
       try {
         const response = await ItemFinder.get("/");
 
@@ -24,15 +24,17 @@ export const RentMyStuffContextProvider = (props) => {
       }
     };
 
-    fetchData();
+    fetchAllItemsData();
   }, []);
 
-  const updateInput = async (input) => {
+  const updateInputItems = async (inputItems) => {
     const filtered = itemListDefault.filter((itemDefault) => {
-      return itemDefault.item_name.toLowerCase().includes(input.toLowerCase());
+      return itemDefault.item_name
+        .toLowerCase()
+        .includes(inputItems.toLowerCase());
     });
 
-    setInput(input);
+    setInputItems(inputItems);
     setItemsList(filtered);
   };
   // <-------------------------------------------------------------------------
@@ -42,11 +44,11 @@ export const RentMyStuffContextProvider = (props) => {
       value={{
         itemsList: itemsList,
         setItemsList,
-        input: input,
-        setInput,
+        inputItems: inputItems,
+        setInputItems,
         itemListDefault: itemListDefault,
         setItemListDefault,
-        updateInput: updateInput,
+        updateInputItems: updateInputItems,
         selectedItem,
         setSelectedItem,
       }}
