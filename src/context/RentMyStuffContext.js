@@ -4,9 +4,11 @@ import ItemFinder from "../apis/ItemFinder";
 export const RentMyStuffContext = createContext();
 
 export const RentMyStuffContextProvider = (props) => {
+  // Used in ItemsHomePage
   const [input, setInput] = useState("");
   const [itemListDefault, setItemListDefault] = useState();
   const [itemsList, setItemsList] = useState([]);
+  // Used in ItemDetailsPage
   const [selectedItem, setSelectedItem] = useState([]);
 
   // Item Search feature <-----------------------------------------------------
