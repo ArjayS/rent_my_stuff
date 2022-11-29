@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import ItemFinder from "../apis/ItemFinder";
-import StarRating from "../components/StarRating";
+import StarRatingComponent from "../components/StarRatingComponent";
 
 const ItemDetailsPage = () => {
   const { id } = useParams();
@@ -37,7 +37,7 @@ const ItemDetailsPage = () => {
             {selectedItem.count} reviews
           </span>
         </h3>
-        <StarRating
+        <StarRatingComponent
           key={selectedItem.id}
           rating={selectedItem.average_rating}
         />
