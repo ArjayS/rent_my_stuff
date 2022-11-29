@@ -14,6 +14,8 @@ export const RentMyStuffContextProvider = (props) => {
   const [showOptions, setShowOptions] = useState(false);
   // Used in Reservations
   const [reservationsList, setReservationsList] = useState([]);
+  // Used in ItemReviewCardComponent
+  const [itemReviewList, setItemReviewList] = useState([]);
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -64,6 +66,8 @@ export const RentMyStuffContextProvider = (props) => {
         reservationsList,
         setReservationsList,
         addReservation,
+        itemReviewList,
+        setItemReviewList,
       }}
     >
       {props.children}

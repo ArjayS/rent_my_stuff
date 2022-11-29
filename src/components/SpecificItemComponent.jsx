@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import ItemFinder from "../apis/ItemFinder";
 import StarRatingComponent from "../components/StarRatingComponent";
 import ModalComponent from "../components/ModalComponent";
 
-const SpecificItemComponent = () => {
-  const { id } = useParams();
-
+const SpecificItemComponent = (props) => {
   const { selectedItem, setSelectedItem } = useContext(RentMyStuffContext);
 
   const [showModalComponent, setShowModalComponent] = useState(false);
+
+  const { id } = props;
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -40,10 +39,7 @@ const SpecificItemComponent = () => {
             {selectedItem.count} reviews
           </span>
         </h3>
-        <StarRatingComponent
-          key={selectedItem.id}
-          rating={selectedItem.average_rating}
-        />
+        <StarRatingComponent key={id} rating={selectedItem.average_rating} />
         <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
           {selectedItem.average_rating} out of 5
         </p>
