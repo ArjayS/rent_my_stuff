@@ -1,8 +1,4 @@
 import React, { useContext } from "react";
-<<<<<<< HEAD:src/components/GeneraltemsListComponent.jsx
-=======
-// import ImageOne from "../images/shirt_image.jpg";
->>>>>>> main:src/components/GeneraltemsList.jsx
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
