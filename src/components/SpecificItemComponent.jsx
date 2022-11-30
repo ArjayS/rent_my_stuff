@@ -147,11 +147,6 @@ const SpecificItemComponent = (props) => {
               </div>
 
               <div class="mt-10">
-                <h3 class="text-sm font-medium text-gray-900">Location</h3>
-                <p>{selectedItem.item_location}</p>
-              </div>
-
-              <div class="mt-10">
                 <h2 class="text-sm font-medium text-gray-900">Availability</h2>
 
                 <div class="mt-4 space-y-6">

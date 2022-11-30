@@ -70,9 +70,6 @@ const GeneraltemsListComponent = () => {
                             {item.item_name}
                           </span>
                         </h3>
-                        <p className="mt-1 text-sm text-gray-500">
-                          {item.item_location}
-                        </p>
                         <div className="mt-1 text-sm text-gray-900">
                           <p className="mt-1 text-sm text-gray-900">
                             Price: ${item.item_base_price}
