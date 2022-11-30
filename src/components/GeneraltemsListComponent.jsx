@@ -58,11 +58,7 @@ const GeneraltemsListComponent = () => {
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
-<<<<<<< HEAD:src/components/GeneraltemsListComponent.jsx
                         src={item.item_image}
-=======
-                        // src={ImageOne}
->>>>>>> main:src/components/GeneraltemsList.jsx
                         alt="Front of men&#039;s Basic Tee in black."
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
