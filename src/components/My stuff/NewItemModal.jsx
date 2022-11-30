@@ -1,13 +1,12 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import NewItemForm from './NewItem'
 import StuffData from '../../api/StuffData'
 
 
 export default function NewItemModal({closeModal}) {
   
   const [open, setOpen] = useState(true)
-  console.log("open state:", open)
+  // console.log("open state:", open)
   const cancelButtonRef = useRef(null)
 
   const [ItemName, setItemName] = useState("")
@@ -18,7 +17,6 @@ export default function NewItemModal({closeModal}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    closeModal(false)
     try {
       const response = await StuffData.post("items/", {
         owner_id: 2, 
@@ -29,8 +27,9 @@ export default function NewItemModal({closeModal}) {
         item_image: ItemImage,
         item_description: ItemDescription
       })
-      console.log(response)
-      // setOpen(false)
+      let item = response.data.data.item
+      closeModal(false, item)
+      console.log("response",response)
     } catch (err){
 
     }}

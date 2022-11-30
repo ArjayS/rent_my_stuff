@@ -4,6 +4,11 @@ export default function RentedItem(props){
   return(
 <div class="group relative">
       <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+      <img
+                  src={props.image}
+                  alt={props.name}
+                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                />
       </div>
       <div class="mt-4 flex justify-between">
       <div>
@@ -13,7 +18,7 @@ export default function RentedItem(props){
           {props.name}
         </a>
       </h3>
-      <p class="mt-1 text-sm text-gray-500">{props.description}</p>
+      <p class="max-w-[160px] whitespace-nowrap overflow-hidden text-ellipsis mt-1 text-sm text-gray-500">{props.description}</p>
     </div>
     <p class="text-sm font-medium text-gray-900">Bid:${props.bid}</p>
   </div>
