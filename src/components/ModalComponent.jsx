@@ -1,28 +1,29 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ReservationFinder from "../apis/ReservationFinder";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 
 const ModalComponent = (props) => {
-  const [reservationStartDate, setReservationStartDate] = useState("");
-  const [reservationEndDate, setReservationEndDate] = useState("");
-  const [bidPrice, setBidPrice] = useState();
-
-  // Will be replace later with proper routing with userId
-  const [renter, setRenter] = useState();
-
-  const { addReservation } = useContext(RentMyStuffContext);
+  const {
+    addReservation,
+    reservationStartDate,
+    setReservationStartDate,
+    reservationEndDate,
+    setReservationEndDate,
+    bidPrice,
+    setBidPrice,
+    renter,
+    setRenter,
+  } = useContext(RentMyStuffContext);
 
   const { visible, onClose, selectedItemName, selectedItemId } = props;
 
   const handleOnCloseModal = (event) => {
     if (event.target.id === "container") onClose();
-    // setReservationStartDate("");
-    // setReservationEndDate("");
-    // setBidPrice("");
   };
 
   if (!visible) return null;
 
+  // Accessing the route to POST new Bid
   const handlePlaceBidSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -35,7 +36,13 @@ const ModalComponent = (props) => {
           rsrv_price_bid: bidPrice,
         }
       );
+
       console.log(response.data.data.item);
+
+      setReservationStartDate("");
+      setReservationEndDate("");
+      setBidPrice("");
+      onClose();
 
       // Haven't seen the get all of reservations
       addReservation(response.data.data.item);

@@ -14,8 +14,17 @@ export const RentMyStuffContextProvider = (props) => {
   const [showOptions, setShowOptions] = useState(false);
   // Used in Reservations
   const [reservationsList, setReservationsList] = useState([]);
+  const [reservationStartDate, setReservationStartDate] = useState("");
+  const [reservationEndDate, setReservationEndDate] = useState("");
+  const [bidPrice, setBidPrice] = useState();
+  // Will be replace later with proper routing with userId
+  const [renter, setRenter] = useState();
   // Used in ItemReviewCardComponent
   const [itemReviewList, setItemReviewList] = useState([]);
+  // Used in form input star rating for review POST
+  const [starRatingInput, setStarRatingInput] = useState(null);
+  const [starHover, setStarHover] = useState(null);
+  const [textInput, setTextInput] = useState("");
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -49,6 +58,10 @@ export const RentMyStuffContextProvider = (props) => {
     setReservationsList([...reservationsList, reservation]);
   };
 
+  const addItemReview = (itemReview) => {
+    setItemReviewList([...itemReviewList, itemReview]);
+  };
+
   return (
     <RentMyStuffContext.Provider
       value={{
@@ -65,9 +78,24 @@ export const RentMyStuffContextProvider = (props) => {
         setShowOptions,
         reservationsList,
         setReservationsList,
+        reservationStartDate,
+        setReservationStartDate,
+        reservationEndDate,
+        setReservationEndDate,
+        bidPrice,
+        setBidPrice,
+        renter,
+        setRenter,
         addReservation,
         itemReviewList,
         setItemReviewList,
+        starRatingInput,
+        setStarRatingInput,
+        starHover,
+        setStarHover,
+        textInput,
+        setTextInput,
+        addItemReview,
       }}
     >
       {props.children}
