@@ -20,7 +20,7 @@ export default function StuffItem(props){
              
               {props.name}
           </h3>
-          <p class="mt-1 text-sm text-gray-500">{props.description}</p>
+          <p class="max-w-[160px] whitespace-nowrap overflow-hidden text-ellipsis mt-1 text-sm text-gray-500">{props.description}</p>
         </div>
         <p class="text-sm font-medium text-gray-900">${props.price}</p>
       </div>
