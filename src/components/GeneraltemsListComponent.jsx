@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+<<<<<<< HEAD:src/components/GeneraltemsListComponent.jsx
+=======
 // import ImageOne from "../images/shirt_image.jpg";
+>>>>>>> main:src/components/GeneraltemsList.jsx
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
-import StarRating from "./StarRating";
+import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
 
-const GeneraltemsList = () => {
+const GeneraltemsListComponent = () => {
   const { itemsList } = useContext(RentMyStuffContext);
 
   let navigate = useNavigate();
@@ -23,7 +26,7 @@ const GeneraltemsList = () => {
             {item.count} reviews
           </span>
         </h3>
-        <StarRating key={item.id} rating={item.average_rating} />
+        <StarRatingComponent key={item.id} rating={item.average_rating} />
         <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
           {item.average_rating} out of 5
         </p>
@@ -55,7 +58,11 @@ const GeneraltemsList = () => {
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
+<<<<<<< HEAD:src/components/GeneraltemsListComponent.jsx
+                        src={item.item_image}
+=======
                         // src={ImageOne}
+>>>>>>> main:src/components/GeneraltemsList.jsx
                         alt="Front of men&#039;s Basic Tee in black."
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
@@ -71,9 +78,9 @@ const GeneraltemsList = () => {
                             {item.item_name}
                           </span>
                         </h3>
-                        <p className="mt-1 text-sm text-gray-500">
+                        {/* <p className="mt-1 text-sm text-gray-500">
                           {item.item_location}
-                        </p>
+                        </p> */}
                         <div className="mt-1 text-sm text-gray-900">
                           <p className="mt-1 text-sm text-gray-900">
                             Price: ${item.item_base_price}
@@ -85,8 +92,6 @@ const GeneraltemsList = () => {
                   </div>
                 );
               })}
-
-            {/* <!-- More products... --> */}
           </div>
         </div>
       </div>
@@ -94,4 +99,4 @@ const GeneraltemsList = () => {
   );
 };
 
-export default GeneraltemsList;
+export default GeneraltemsListComponent;

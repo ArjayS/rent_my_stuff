@@ -1,12 +1,14 @@
 import React from "react";
-import GeneraltemsList from "../components/GeneraltemsList";
-import StoreNavigation from "../components/StoreNavigation";
+import GeneraltemsListComponent from "../components/GeneraltemsListComponent";
+import SearchBarComponent from "../components/SearchBarComponent";
+import StoreNavigationComponent from "../components/StoreNavigationComponent";
 
 const ItemsHomePage = () => {
   return (
     <div>
-      <StoreNavigation />
-      <GeneraltemsList />
+      <StoreNavigationComponent />
+      <SearchBarComponent />
+      <GeneraltemsListComponent />
     </div>
   );
 };

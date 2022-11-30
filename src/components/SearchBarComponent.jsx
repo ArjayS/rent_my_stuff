@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 
-const SearchBar = () => {
-  const { input, updateInput } = useContext(RentMyStuffContext);
+const SearchBarComponent = () => {
+  const { inputItems, updateInputItems } = useContext(RentMyStuffContext);
 
   return (
     <div>
@@ -34,10 +34,10 @@ const SearchBar = () => {
           <input
             type="search"
             id="default-search"
-            value={input}
+            value={inputItems}
             className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Items"
-            onChange={(event) => updateInput(event.target.value)}
+            onChange={(event) => updateInputItems(event.target.value)}
             required
           />
           {/* <button
@@ -52,4 +52,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarComponent;

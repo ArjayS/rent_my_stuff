@@ -4,13 +4,31 @@ import ItemFinder from "../apis/ItemFinder";
 export const RentMyStuffContext = createContext();
 
 export const RentMyStuffContextProvider = (props) => {
-  const [input, setInput] = useState("");
+  // Used in ItemsHomePage
+  const [inputItems, setInputItems] = useState("");
   const [itemListDefault, setItemListDefault] = useState();
   const [itemsList, setItemsList] = useState([]);
+  // Used in ItemDetailsPage
+  const [selectedItem, setSelectedItem] = useState([]);
+  // Used in StoreNavigationComponent
+  const [showOptions, setShowOptions] = useState(false);
+  // Used in Reservations
+  const [reservationsList, setReservationsList] = useState([]);
+  const [reservationStartDate, setReservationStartDate] = useState("");
+  const [reservationEndDate, setReservationEndDate] = useState("");
+  const [bidPrice, setBidPrice] = useState();
+  // Will be replace later with proper routing with userId
+  const [renter, setRenter] = useState();
+  // Used in ItemReviewCardComponent
+  const [itemReviewList, setItemReviewList] = useState([]);
+  // Used in form input star rating for review POST
+  const [starRatingInput, setStarRatingInput] = useState(null);
+  const [starHover, setStarHover] = useState(null);
+  const [textInput, setTextInput] = useState("");
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllItemsData = async () => {
       try {
         const response = await ItemFinder.get("/");
 
@@ -21,29 +39,63 @@ export const RentMyStuffContextProvider = (props) => {
       }
     };
 
-    fetchData();
+    fetchAllItemsData();
   }, []);
 
-  const updateInput = async (input) => {
+  const updateInputItems = async (inputItems) => {
     const filtered = itemListDefault.filter((itemDefault) => {
-      return itemDefault.item_name.toLowerCase().includes(input.toLowerCase());
+      return itemDefault.item_name
+        .toLowerCase()
+        .includes(inputItems.toLowerCase());
     });
 
-    setInput(input);
+    setInputItems(inputItems);
     setItemsList(filtered);
   };
-  // <--------------------------------------------------------------------------
+  // <-------------------------------------------------------------------------
+
+  const addReservation = (reservation) => {
+    setReservationsList([...reservationsList, reservation]);
+  };
+
+  const addItemReview = (itemReview) => {
+    setItemReviewList([...itemReviewList, itemReview]);
+  };
 
   return (
     <RentMyStuffContext.Provider
       value={{
         itemsList: itemsList,
         setItemsList,
-        input: input,
-        setInput,
+        inputItems: inputItems,
+        setInputItems,
         itemListDefault: itemListDefault,
         setItemListDefault,
-        updateInput: updateInput,
+        updateInputItems: updateInputItems,
+        selectedItem,
+        setSelectedItem,
+        showOptions,
+        setShowOptions,
+        reservationsList,
+        setReservationsList,
+        reservationStartDate,
+        setReservationStartDate,
+        reservationEndDate,
+        setReservationEndDate,
+        bidPrice,
+        setBidPrice,
+        renter,
+        setRenter,
+        addReservation,
+        itemReviewList,
+        setItemReviewList,
+        starRatingInput,
+        setStarRatingInput,
+        starHover,
+        setStarHover,
+        textInput,
+        setTextInput,
+        addItemReview,
       }}
     >
       {props.children}
