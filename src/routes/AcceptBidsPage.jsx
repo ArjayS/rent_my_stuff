@@ -52,11 +52,11 @@ export default function AcceptBidsPage(){
           <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{itemName}</h1>
         </div>
         <div class="group relative">
-          <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+          <div class=" min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-white group-hover:opacity-75 lg:aspect-none lg:h-80">
           <img
                   src={itemImage}
                   alt={itemName}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  className="h-full w-2/3 object-cover object-center lg:h-full "
                 />
           </div>
           <div class="mt-4 flex justify-between">
