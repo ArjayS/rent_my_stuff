@@ -21,24 +21,58 @@ export default function StuffIRented(props){
 
   filter(props)
   
-  console.log("pending:",pending)
-  console.log("approved:",approved)
-  console.log("rejected:",rejected)
+  // console.log("pending:",pending)
+  // console.log("approved:",approved)
+  // console.log("rejected:",rejected)
 
 
-  // return (      
-  //   <RentedItem
-  //     name={item.item_name}
-  //     description={item.item_description}
-  //     bid={item.rsrv_price_bid}
-  //     key={id}
-  //     image={item.item_image}
-  //   />
-  // );
+  const bidsApproved = approved.map((item, id) => {
+    return (      
+      <RentedItem
+        name={item.item_name}
+        description={item.item_description}
+        bid={item.rsrv_price_bid}
+        key={id}
+        image={item.item_image}
+      />
+    );
+  })
 
-  // return(
-  //   <>
-  //     {items}
-  //   </>
-  // )
+  const bidsRejected = rejected.map((item, id) => {
+    return (      
+      <RentedItem
+        name={item.item_name}
+        description={item.item_description}
+        bid={item.rsrv_price_bid}
+        key={id}
+        image={item.item_image}
+      />
+    );
+  })
+
+  const bidsPending = pending.map((item, id) => {
+    return (      
+      <RentedItem
+        name={item.item_name}
+        description={item.item_description}
+        bid={item.rsrv_price_bid}
+        key={id}
+        image={item.item_image}
+      />
+    );
+  })
+
+  return(
+    <>
+    {props.type==="Approved" && (
+      {bidsApproved}
+    )}
+    {props.type==="Rejected" && (
+      {bidsRejected}
+    )}
+    {props.type==="pending" && (
+      {bidsPending}
+    )}     
+    </>
+  )
 }
