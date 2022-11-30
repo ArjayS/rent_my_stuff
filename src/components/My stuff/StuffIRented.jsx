@@ -21,11 +21,6 @@ export default function StuffIRented(props){
 
   filter(props)
   
-  // console.log("pending:",pending)
-  // console.log("approved:",approved)
-  // console.log("rejected:",rejected)
-
-
   const bidsApproved = approved.map((item, id) => {
     return (      
       <RentedItem
@@ -62,17 +57,25 @@ export default function StuffIRented(props){
     );
   })
 
-  return(
-    <>
-    {props.type==="Approved" && (
+  console.log("bids",typeof(bidsApproved))
+ 
+  if (props.type==="Approved"){
+    return(
+      <>
       {bidsApproved}
-    )}
-    {props.type==="Rejected" && (
+      </>
+    )
+  } else if (props.type==="Rejected"){
+    return(
+      <>
       {bidsRejected}
-    )}
-    {props.type==="pending" && (
+      </>
+    )
+  } else {
+    return(
+      <>
       {bidsPending}
-    )}     
-    </>
-  )
+      </>
+    )
+  }
 }

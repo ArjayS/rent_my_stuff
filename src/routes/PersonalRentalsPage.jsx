@@ -52,38 +52,7 @@ const PersonalUserPage = () => {
   &nbsp;Rejected
   </button>
 </div>
-    {/* {
-      rentalType === "Approved" && (
         <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <h2>Approved Rentals</h2>
-        <StuffIRented 
-          items={rentalData}
-          />
-        </div>
-        )
-    }
-    {
-      rentalType === "pending" && (
-        <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <h2>Pending Rentals</h2>
-        <StuffIRented 
-          items={rentalData}
-          />
-        </div>
-        )
-    }
-    {
-      rentalType === "Rejected" && (
-        <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <h2>Rejected Rentals</h2>
-        <StuffIRented 
-          items={rentalData}
-          />
-        </div>
-        )
-    } */}
-        <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        <h2>Rejected Rentals</h2>
         <StuffIRented 
           items={rentalData}
           type={rentalType}
