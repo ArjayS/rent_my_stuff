@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ImageOne from "../images/shirt_image.jpg";
+// import ImageOne from "../images/shirt_image.jpg";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
@@ -55,7 +55,7 @@ const GeneraltemsList = () => {
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
-                        src={ImageOne}
+                        // src={ImageOne}
                         alt="Front of men&#039;s Basic Tee in black."
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                       />
