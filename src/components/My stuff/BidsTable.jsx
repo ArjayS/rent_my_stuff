@@ -11,7 +11,7 @@ export default function BidsTable(props) {
             <>
               <tr>
                 <th scope="col" class="py-3 px-6">
-                  User
+                  Renter
                 </th>
                 <th scope="col" class="py-3 px-6">
                   Bid
@@ -25,7 +25,7 @@ export default function BidsTable(props) {
           {props.type === "Rejected" && (
             <tr>
               <th scope="col" class="py-3 px-6">
-                User
+                Renter
               </th>
               <th scope="col" class="py-3 px-6">
                 Bid
@@ -35,13 +35,13 @@ export default function BidsTable(props) {
           {props.type === "pending" && (
             <tr>
               <th scope="col" class="py-3 px-6">
-                User
+                Renter
+              </th>
+              <th scope="col" class="py-3 px-6">
+                Renter Rating
               </th>
               <th scope="col" class="py-3 px-6">
                 Bid
-              </th>
-              <th scope="col" class="py-3 px-6">
-                Base Price
               </th>
               <th scope="col" class="py-3 px-6">
                 Status

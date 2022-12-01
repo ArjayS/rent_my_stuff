@@ -27,7 +27,7 @@ export default function UserReviewModal(props) {
           rent_message: message
         
         })
-        props.closeModal(false)
+      props.closeModal(false)
       console.log("renter", renterId)  
       console.log("rating:", rating)
       console.log("message",message)
@@ -75,14 +75,14 @@ export default function UserReviewModal(props) {
                     <div className="md:grid md:grid-cols-2 md:gap-6">
                       <div className="mt-5 md:col-span-2 md:mt-0">
                         <h2 class="mt-5 ml-5 text-2xl font-bold tracking-tight text-gray-900">
-                          Review Renter
+                          Review The Renter
                         </h2>
                         <form action="#" method="POST">
                           <div className="overflow-hidden shadow sm:rounded-md">
                             <div className="bg-white px-4 py-5 sm:p-6">
                               <div className="grid grid-cols-4 gap-6">
                                 <div className="col-span-6 sm:col-span-4">
-                                  Rating
+                                  Renter Rating
                                   <StarRating rating={renterRating}/>
                                 </div>
 
@@ -103,7 +103,7 @@ export default function UserReviewModal(props) {
                                       name="about"
                                       rows={3}
                                       className="w-96 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                      placeholder="Item Description"
+                                      placeholder="Comments about the renter"
                                     />
                                   </div>
                                 </div>

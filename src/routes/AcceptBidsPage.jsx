@@ -60,6 +60,10 @@ export default function AcceptBidsPage() {
     console.log('modal info:', e)
   };
 
+  const closeModal = (value) => {
+    setShowModal(value);
+  };
+
   return (
     <>
       <div class="bg-white">
@@ -109,7 +113,7 @@ export default function AcceptBidsPage() {
           <BidsTable bids={bidsList} approval={handleApproval} type={rentalType} openmodal={handleClick}/>
         </div>
       </div>
-      {showModal && <UserReviewModal reviewer={id} renter={renter} item={itemId}/>}
+      {showModal && <UserReviewModal reviewer={id} renter={renter} item={itemId} closeModal={closeModal}/>}
     </>
   );
 }

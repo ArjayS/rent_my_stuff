@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { FaBookDead } from "react-icons/fa";
 import StuffData from "../../api/StuffData";
+import StarRatingComponent from "../StarRatingComponent";
 
 export default function EachBid(props) {
   let approved = [];
@@ -30,7 +32,7 @@ export default function EachBid(props) {
             scope="row"
             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
           >
-            {bid.guest_id}
+            {bid.renter}
           </th>
           <td class="py-4 px-6">${bid.rsrv_price_bid}</td>
           <td class="py-4 px-6">
@@ -55,7 +57,7 @@ export default function EachBid(props) {
             scope="row"
             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
           >
-            {bid.guest_id}
+            {bid.renter}
           </th>
           <td class="py-4 px-6">${bid.rsrv_price_bid}</td>
           
@@ -72,10 +74,10 @@ export default function EachBid(props) {
             scope="row"
             class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap"
           >
-            {bid.guest_id}
+            {bid.renter}
           </th>
+          <td class="py-4 px-6"><StarRatingComponent key={id} rating={bid.rate}/></td>
           <td class="py-4 px-6">${bid.rsrv_price_bid}</td>
-          <td class="py-4 px-6">${bid.item_base_price}</td>
 
           <td class="py-4 px-6">{bid.rsrv_approval}</td>
 
