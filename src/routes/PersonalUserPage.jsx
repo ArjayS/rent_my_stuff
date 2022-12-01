@@ -3,12 +3,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import StuffData from "../api/StuffData";
 import MyListofStuff from "../components/My stuff/MyListOfStuff";
-import StuffIRented from "../components/My stuff/StuffIRented";
 import NewItemModal from "../components/My stuff/NewItemModal";
 
 const PersonalUserPage = () => {
   const [itemData, setItemData] = useState([]);
-  const [rentalData, setRentalData] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -23,7 +21,7 @@ const PersonalUserPage = () => {
     fetchItemData();
   }, []);
 
-  console.log("item data:", itemData)
+  // console.log("item data:", itemData)
 
   const handleClick = (e) => {
     setShowModal(true);

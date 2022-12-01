@@ -57,7 +57,6 @@ export default function StuffIRented(props){
     );
   })
 
-  console.log("bids",typeof(bidsApproved))
  
   if (props.type==="Approved"){
     return(
