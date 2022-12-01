@@ -36,6 +36,7 @@ const WriteFormComponent = (props) => {
       console.log(error);
     }
   };
+
   return (
     <div>
       {/* <!-- comment form --> */}

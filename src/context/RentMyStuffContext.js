@@ -25,6 +25,12 @@ export const RentMyStuffContextProvider = (props) => {
   const [starRatingInput, setStarRatingInput] = useState(null);
   const [starHover, setStarHover] = useState(null);
   const [textInput, setTextInput] = useState("");
+  // Used in register and login page
+  const [userEmailReg, setUserEmailReg] = useState("");
+  const [passwordReg, setPasswordReg] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState("");
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -96,6 +102,16 @@ export const RentMyStuffContextProvider = (props) => {
         textInput,
         setTextInput,
         addItemReview,
+        userEmailReg,
+        setUserEmailReg,
+        passwordReg,
+        setPasswordReg,
+        userEmail,
+        setUserEmail,
+        password,
+        setPassword,
+        loginStatus,
+        setLoginStatus,
       }}
     >
       {props.children}
