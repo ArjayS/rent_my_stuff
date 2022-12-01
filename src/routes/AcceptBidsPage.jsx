@@ -14,6 +14,8 @@ export default function AcceptBidsPage() {
   const [bidsStatus, setBidsStatus] = useState("");
   const [rentalType, setRentalType] = useState("Approved");
   const [showModal, setShowModal] = useState(false);
+  const [renter, setRenter] = useState([]);
+  const [itemId, setItemId] = useState([])
   let { id } = useParams();
 
 
@@ -53,6 +55,9 @@ export default function AcceptBidsPage() {
 
   const handleClick = (e) => {
     setShowModal(true);
+    setRenter(e.guest_id);
+    setItemId(e.item_id)
+    console.log('modal info:', e)
   };
 
   return (
@@ -100,13 +105,11 @@ export default function AcceptBidsPage() {
           </div>
         </div>
         <div class="container mx-auto w-3/4">
-          <h2 class="text-2xl font-bold tracking-tight text-gray-900">
-            Pendig Acceptance
-          </h2>
+
           <BidsTable bids={bidsList} approval={handleApproval} type={rentalType} openmodal={handleClick}/>
         </div>
       </div>
-      {showModal && <UserReviewModal/>}
+      {showModal && <UserReviewModal reviewer={id} renter={renter} item={itemId}/>}
     </>
   );
 }

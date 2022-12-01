@@ -37,7 +37,7 @@ export default function EachBid(props) {
             <button
               type="submit"
               class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={()=>props.openmodal()}
+              onClick={()=>props.openmodal(bid)}
             >
               Write Review
             </button>
@@ -74,7 +74,7 @@ export default function EachBid(props) {
           >
             {bid.guest_id}
           </th>
-          <td class="py-4 px-6">{bid.rsrv_price_bid}</td>
+          <td class="py-4 px-6">${bid.rsrv_price_bid}</td>
           <td class="py-4 px-6">${bid.item_base_price}</td>
 
           <td class="py-4 px-6">{bid.rsrv_approval}</td>

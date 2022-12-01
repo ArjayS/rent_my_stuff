@@ -1,13 +1,42 @@
 import React, { Fragment, useRef, useState, useContext } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import StarRating from "./StarRating";
+import StuffData from "../../api/StuffData";
 
-export default function UserReviewModal({ closeModal }) {
+export default function UserReviewModal(props) {
 
 
   const [open, setOpen] = useState(true);
-  const [ItemDescription, setItemDescription] = useState("");
   const cancelButtonRef = useRef(null);
+  const [rating, setRating] = useState([]);
+  const [message, setMessage] = useState("");
+  const renterId = props.renter
+
+  function renterRating(value){
+    setRating(value)
+  }
+
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await StuffData.post(`userreviews/renter/${renterId}`, {
+          owner_id: props.reviewer, 
+          item_id: props.item,
+          rent_worthy: rating,
+          rent_message: message
+        
+        })
+        props.closeModal(false)
+      console.log("renter", renterId)  
+      console.log("rating:", rating)
+      console.log("message",message)
+      console.log("item", props.item)
+      console.log("owner", props.reviewer)
+    } catch (err){
+
+    }}
+
 
   return (
     <>
@@ -42,7 +71,6 @@ export default function UserReviewModal({ closeModal }) {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  {/* <NewItemForm/> */}
                   <div className="mt-10 sm:mt-0">
                     <div className="md:grid md:grid-cols-2 md:gap-6">
                       <div className="mt-5 md:col-span-2 md:mt-0">
@@ -55,7 +83,7 @@ export default function UserReviewModal({ closeModal }) {
                               <div className="grid grid-cols-4 gap-6">
                                 <div className="col-span-6 sm:col-span-4">
                                   Rating
-                                  <StarRating/>
+                                  <StarRating rating={renterRating}/>
                                 </div>
 
                                 <div>
@@ -67,9 +95,9 @@ export default function UserReviewModal({ closeModal }) {
                                   </label>
                                   <div className="mt-1">
                                     <textarea
-                                      value={ItemDescription}
+                                      value={message}
                                       onChange={(e) =>
-                                        setItemDescription(e.target.value)
+                                        setMessage(e.target.value)
                                       }
                                       id="about"
                                       name="about"
@@ -88,7 +116,7 @@ export default function UserReviewModal({ closeModal }) {
                             </div>
                             <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                               <button
-                                // onClick={handleSubmit}
+                                onClick={handleSubmit}
                                 type="submit"
                                 className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                               >

@@ -6,7 +6,6 @@ import StuffData from '../../api/StuffData'
 export default function NewItemModal({closeModal}) {
   
   const [open, setOpen] = useState(true)
-  // console.log("open state:", open)
   const cancelButtonRef = useRef(null)
 
   const [ItemName, setItemName] = useState("")

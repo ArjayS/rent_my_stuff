@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import { FaStar } from "react-icons/fa";
 import { useState } from "react";
 
-const StarRating = () => {
+const StarRating = ({rating}) => {
   const [starRating, setStarRating] = useState(null);
   const [starHover, setStarHover] = useState(null);
 
+  rating(starRating)
 
   return (
     <div className="flex">
