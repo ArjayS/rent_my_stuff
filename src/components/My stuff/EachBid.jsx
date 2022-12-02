@@ -36,13 +36,12 @@ export default function EachBid(props) {
           </th>
           <td class="py-4 px-6">${bid.rsrv_price_bid}</td>
           <td class="py-4 px-6">
-            <button
-              type="submit"
-              class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              onClick={()=>props.openmodal(bid)}
+            <a
+              onClick={() => props.openmodal(bid)}
+              class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
             >
-              Write Review
-            </button>
+              Review Renter
+            </a>
           </td>
         </tr>
       </>
@@ -84,7 +83,7 @@ export default function EachBid(props) {
           <td class="py-4 px-6">
             <a
               onClick={() => props.approval(bid.id, "Approved")}
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+              class="inline-flex items-center h-8 px-4 m-2 text-sm text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
             >
               Approve
             </a>
@@ -92,7 +91,7 @@ export default function EachBid(props) {
           <td class="py-4 px-6">
             <a
               onClick={() => props.approval(bid.id, "Rejected")}
-              class="font-medium text-red-600 dark:text-red-500 hover:underline"
+              class="inline-flex items-center h-8 px-4 m-2 text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-800"
             >
               Reject
             </a>
