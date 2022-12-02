@@ -73,15 +73,17 @@ export default function AcceptBidsPage() {
             {itemName}
           </h1>
         </div>
-        <div class="w-3/4 group relative mx-auto">
-          <div class=" min-h-80 aspect-w-1 aspect-h-1 w-3/4 overflow-hidden rounded-md bg-white group-hover:opacity-75 lg:aspect-none lg:h-80">
+        <div class="w-3/4 group relative mx-auto ">
+          <div class="flex item-center mb-10 min-h-80 aspect-w-1 aspect-h-1 w-3/4 overflow-hidden rounded-md bg-white group-hover:opacity-75 lg:aspect-none lg:h-80">
             <img
               src={itemImage}
               alt={itemName}
-              className="h-full w-full object-cover object-center lg:h-full "
+              // className="h-full w-full object-cover object-center lg:h-full "
             />
           </div>
-          <div class="inline-flex rounded-md shadow-sm" role="group">
+        </div>
+        <div class="container mx-auto w-3/4">
+          <div class="mb-5 inline-flex rounded-md shadow-sm" role="group">
             <button
               onClick={() => handleRental("Approved")}
               type="button"
@@ -107,8 +109,6 @@ export default function AcceptBidsPage() {
               &nbsp;Rejected
             </button>
           </div>
-        </div>
-        <div class="container mx-auto w-3/4">
 
           <BidsTable bids={bidsList} approval={handleApproval} type={rentalType} openmodal={handleClick}/>
         </div>
