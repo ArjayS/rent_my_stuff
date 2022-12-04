@@ -52,7 +52,7 @@ const PersonalUserPage = () => {
   return (
     <>
       {showModal && <NewItemModal closeModal={closeModal} />}
-      <div class="bg-white">
+      <div class="bg-gray-50">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">
             My Stuff
@@ -60,7 +60,7 @@ const PersonalUserPage = () => {
 
           <button
             onClick={handleClick}
-            class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-slate-900 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             Add item
           </button>

@@ -46,13 +46,13 @@ export default function StuffItem(props){
       </div>
       {hasBids ? 
       <Link to={`/items/${props.id}/bids`}>
-      <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Item Bids</button>
+      <button type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-slate-900 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Item Bids</button>
       </Link> : 
       <button type="button" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-gray-200 py-3 px-8 text-base font-medium text-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 cursor-not-allowed" disabled>No Bids</button>
       }
 
  
-      <button onClick={()=> props.delete(props.id)} type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-red-600 py-3 px-8 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
+      <button onClick={()=> props.delete(props.id)} type="submit" class="mt-10 flex items-center justify-center rounded-md border border-transparent bg-rose-600 py-3 px-8 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Delete</button>
       
     </div>
   )

@@ -78,7 +78,6 @@ export default function AcceptBidsPage() {
             <img
               src={itemImage}
               alt={itemName}
-              // className="h-full w-full object-cover object-center lg:h-full "
             />
           </div>
         </div>
@@ -87,7 +86,7 @@ export default function AcceptBidsPage() {
             <button
               onClick={() => handleRental("Approved")}
               type="button"
-              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 "
+              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-l-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-slate-900 focus:text-blue-700 "
             >
               <p class="text-base">&#128077;</p>
               &nbsp;Approved
@@ -95,7 +94,7 @@ export default function AcceptBidsPage() {
             <button
               onClick={() => handleRental("pending")}
               type="button"
-              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 "
+              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-slate-900 focus:text-blue-700 "
             >
               <p class="text-base">&#128528;</p>
               &nbsp;Pending
@@ -103,7 +102,7 @@ export default function AcceptBidsPage() {
             <button
               onClick={() => handleRental("Rejected")}
               type="button"
-              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 "
+              class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-slate-900 focus:text-blue-700 "
             >
               <p class="text-base">&#128078;</p>
               &nbsp;Rejected
