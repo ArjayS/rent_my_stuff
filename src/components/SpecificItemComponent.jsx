@@ -5,11 +5,14 @@ import StarRatingComponent from "../components/StarRatingComponent";
 import ModalComponent from "../components/ModalComponent";
 
 const SpecificItemComponent = (props) => {
-  const { selectedItem, setSelectedItem } = useContext(RentMyStuffContext);
+  const { selectedItem, setSelectedItem, verifiedStatus } =
+    useContext(RentMyStuffContext);
 
   const [showModalComponent, setShowModalComponent] = useState(false);
 
   const { id } = props;
+
+  console.log("specific item: ", verifiedStatus);
 
   useEffect(() => {
     const fetchItemData = async () => {
