@@ -9,6 +9,7 @@ import PersonalRentalsPage from "./routes/PersonalRentalsPage"
 import NewItemPage from "./routes/NewItemPage";
 import { RentMyStuffContextProvider } from "./context/RentMyStuffContext";
 import AcceptBidsPage from "./routes/AcceptBidsPage";
+import UserReviewsPage from "./routes/UserReviewsPage";
 
 const App = () => {
   return (
@@ -19,7 +20,7 @@ const App = () => {
             <Route path="/" element={<ItemsHomePage />} />
             <Route path="/items/:id/item" element={<ItemDetailsPage />} />
             <Route path="/users" element={<UsersPage />} />
-            <Route path="/users/:id/userreview" element={<UserDetailsPage />} />
+            <Route path="/users/:id/userreview" element={<UserReviewsPage />} />
             <Route path="/users/:id" element={<PersonalUserPage />} />
             <Route path="/users/:id/rented" element={<PersonalRentalsPage />} />
             <Route path="/items/:id/bids" element={<AcceptBidsPage />} />
