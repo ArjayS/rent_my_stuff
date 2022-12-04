@@ -1,58 +1,89 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import StuffData from "../api/StuffData";
 import MyListofStuff from "../components/My stuff/MyListOfStuff";
 import StuffIRented from "../components/My stuff/StuffIRented";
 import NewItemModal from "../components/My stuff/NewItemModal";
+import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import UserFinder from "../apis/UserFinder";
+import { useNavigate } from "react-router-dom";
+import StoreNavigationComponent from "../components/StoreNavigationComponent";
 
 const PersonalUserPage = () => {
   const [itemData, setItemData] = useState([]);
   const [rentalData, setRentalData] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
+  let navigate = useNavigate();
+
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
+
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await UserFinder.get("/login");
+
+        if (response.data.loggedIn) {
+          console.log("get request for /login:", response.data.data.user);
+          setVerifiedStatus(response.data.data.user);
+        } else {
+          setVerifiedStatus("Nothing");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+
     const fetchItemData = async () => {
       try {
-        const response = await StuffData.get("/users/2/items")
-        console.log("items:",response.data.data.items)
-        setItemData(response.data.data.items)
-      } catch(err){}
-    }
+        const response = await StuffData.get(
+          `/users/${verifiedStatus.id}/items`
+        );
+        console.log("items:", response.data.data.items);
+        setItemData(response.data.data.items);
+      } catch (err) {}
+    };
 
     fetchItemData();
   }, []);
 
-  console.log("item data:", itemData)
+  console.log("item data:", itemData);
 
   const handleClick = (e) => {
     setShowModal(true);
   };
 
   const addItem = (item) => {
-    setItemData([...itemData, item])
-  }
+    setItemData([...itemData, item]);
+  };
 
-  const closeModal = (value,item) => {
+  const closeModal = (value, item) => {
     setShowModal(value);
     // console.log("show modal2", showModal);
-    addItem(item)
+    addItem(item);
     // window.location.reload(false);
   };
 
   const handleDelete = async (id) => {
-    try{
-      const response = await StuffData.delete(`items/${id}/item`)
-      setItemData(itemData.filter(item => {
-        return item.id !== id
-      }))
-    } catch (err){
-
-    } 
-  }
+    try {
+      const response = await StuffData.delete(`items/${id}/item`);
+      setItemData(
+        itemData.filter((item) => {
+          return item.id !== id;
+        })
+      );
+    } catch (err) {}
+  };
 
   return (
     <>
+      <StoreNavigationComponent />
+      {/* <h1 className="text-3xl font-bold underline">
+        Home Page! Welcome, {verifiedStatus.user_name}
+      </h1> */}
       {showModal && <NewItemModal closeModal={closeModal} />}
       <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -71,11 +102,8 @@ const PersonalUserPage = () => {
             <MyListofStuff items={itemData} delete={handleDelete} />
           </div>
         </div>
-
-   </div>
-
-  </>
-    
+      </div>
+    </>
   );
 };
 

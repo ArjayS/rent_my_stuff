@@ -28,9 +28,11 @@ export const RentMyStuffContextProvider = (props) => {
   // Used in register and login page
   const [userEmailReg, setUserEmailReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
+  const [userNameReg, setUserNameReg] = useState("");
+  const [userImageReg, setUserImageReg] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginStatus, setLoginStatus] = useState("");
+  const [verifiedStatus, setVerifiedStatus] = useState("");
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -106,12 +108,16 @@ export const RentMyStuffContextProvider = (props) => {
         setUserEmailReg,
         passwordReg,
         setPasswordReg,
+        userNameReg,
+        setUserNameReg,
+        userImageReg,
+        setUserImageReg,
         userEmail,
         setUserEmail,
         password,
         setPassword,
-        loginStatus,
-        setLoginStatus,
+        verifiedStatus,
+        setVerifiedStatus,
       }}
     >
       {props.children}

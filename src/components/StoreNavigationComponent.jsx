@@ -1,18 +1,64 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import UserFinder from "../apis/UserFinder";
+import { useNavigate } from "react-router-dom";
 
 const StoreNavigationComponent = () => {
-  const { showOptions, setShowOptions } = useContext(RentMyStuffContext);
+  let navigate = useNavigate();
+
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const response = await UserFinder.get("/login");
+
+  //       if (response.data.loggedIn) {
+  //         console.log("get request for /login:", response.data.data.user);
+  //         setVerifiedStatus(response.data.data.user);
+  //       } else {
+  //         setVerifiedStatus("Nothing");
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
+  //   fetchUser();
+  // }, []);
+
+  const { showOptions, setShowOptions, verifiedStatus, setVerifiedStatus } =
+    useContext(RentMyStuffContext);
 
   const handleClickHamburger = () => {
     setShowOptions(!showOptions);
   };
+
+  const handleClickItemsHomePage = async (event) => {
+    event.preventDefault();
+    try {
+      navigate(`/`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
-      <h1 className="text-6xl font-light text-center">Welcome!</h1>
+      <h1 className="text-6xl font-light text-center">
+        Welcome! {verifiedStatus.user_name}
+      </h1>
       <div className=" bg-gray-200 flex justify-center items-center">
         <div class="relative inline-block text-left">
           <div>
+            <button
+              onClick={handleClickItemsHomePage}
+              type="button"
+              class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
+              id="menu-button"
+              aria-expanded="true"
+              aria-haspopup="true"
+            >
+              Browse Our Collection
+            </button>
             <button
               onClick={handleClickHamburger}
               type="button"

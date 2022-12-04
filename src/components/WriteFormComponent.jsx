@@ -9,18 +9,21 @@ const WriteFormComponent = (props) => {
     setStarRatingInput,
     textInput,
     setTextInput,
-    renter,
-    setRenter,
     addItemReview,
+    verifiedStatus,
   } = useContext(RentMyStuffContext);
 
   const { id } = props;
+
+  console.log("write item review form: ", verifiedStatus);
+
+  const renterId = verifiedStatus.id;
 
   const handlePlaceItemReview = async (event) => {
     event.preventDefault();
     try {
       const response = await ItemReviewFinder.post(`/stuff/${id}`, {
-        guest_id: renter,
+        guest_id: renterId,
         item_rating: starRatingInput,
         item_message: textInput,
       });
@@ -29,7 +32,6 @@ const WriteFormComponent = (props) => {
 
       setTextInput("");
       setStarRatingInput("");
-      setRenter("");
 
       addItemReview(response.data.data.user);
     } catch (error) {
@@ -47,15 +49,6 @@ const WriteFormComponent = (props) => {
               Overall Rating
               <StarRatingInputComponent />
             </h2>
-            <div className="flex flex-col">
-              <input
-                type="text"
-                className="border border-gray-700 p-2 rounded mb-5"
-                placeholder="Renter ID"
-                value={renter}
-                onChange={(event) => setRenter(event.target.value)}
-              />
-            </div>
             <div class="w-full md:w-full px-3 mb-2 mt-2">
               <textarea
                 class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"

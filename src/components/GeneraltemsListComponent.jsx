@@ -4,8 +4,10 @@ import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
 
 const GeneraltemsListComponent = () => {
-  const { itemsList } = useContext(RentMyStuffContext);
+  const { itemsList, verifiedStatus, setVerifiedStatus } =
+    useContext(RentMyStuffContext);
 
+  console.log("general items: ", verifiedStatus);
   let navigate = useNavigate();
 
   const renderRating = (item) => {

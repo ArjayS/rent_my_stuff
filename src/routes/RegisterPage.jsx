@@ -4,8 +4,17 @@ import UserFinder from "../apis/UserFinder";
 import { useNavigate } from "react-router-dom";
 
 const RegisterPage = () => {
-  const { userEmailReg, setUserEmailReg, passwordReg, setPasswordReg } =
-    useContext(RentMyStuffContext);
+  const {
+    userEmailReg,
+    setUserEmailReg,
+    passwordReg,
+    setPasswordReg,
+    userNameReg,
+    setUserNameReg,
+    userImageReg,
+    setUserImageReg,
+    setVerifiedStatus,
+  } = useContext(RentMyStuffContext);
 
   let navigate = useNavigate();
 
@@ -13,12 +22,16 @@ const RegisterPage = () => {
     event.preventDefault();
     try {
       const response = await UserFinder.post("/register", {
+        user_name: userNameReg,
+        user_image: userImageReg,
         user_email: userEmailReg,
         user_password: passwordReg,
       });
 
+      setVerifiedStatus(response.data.data.user);
+      navigate(`/users`);
+
       console.log(response.data.data.user);
-      navigate(`/`);
     } catch (error) {
       console.log(error);
     }
@@ -34,6 +47,44 @@ const RegisterPage = () => {
                 Create an account
               </h1>
               <form class="space-y-4 md:space-y-6" action="#">
+                <div>
+                  <label
+                    for="username"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your username
+                  </label>
+                  <input
+                    type="username"
+                    name="username"
+                    id="username"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="name"
+                    required=""
+                    onChange={(event) => {
+                      setUserNameReg(event.target.value);
+                    }}
+                  />
+                </div>
+                <div>
+                  <label
+                    for="userimage"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your Image Link
+                  </label>
+                  <input
+                    type="userimage"
+                    name="userimage"
+                    id="userimage"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="imgur link"
+                    required=""
+                    onChange={(event) => {
+                      setUserImageReg(event.target.value);
+                    }}
+                  />
+                </div>
                 <div>
                   <label
                     for="email"
