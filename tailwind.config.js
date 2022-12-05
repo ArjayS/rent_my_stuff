@@ -9,6 +9,11 @@ module.exports = {
           450: "#5F99F7",
         },
       },
+      // fontFamily: {
+      //   sans:[
+      //     "Bungee shade"
+      //   ]
+      // }
     },
   },
   plugins: [],

@@ -54,7 +54,7 @@ const PersonalUserPage = () => {
     <StoreNavigationComponent />
       <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 class="text-2xl font-bold tracking-tight text-orange-500">
             Stuff I've rented or want to rent
           </h2>
           <div class="my-9 inline-flex rounded-md shadow-sm" role="group">

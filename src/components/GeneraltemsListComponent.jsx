@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
+import SearchBarComponent from "./SearchBarComponent";
 
 const GeneraltemsListComponent = () => {
   const { itemsList, verifiedStatus } = useContext(RentMyStuffContext);
@@ -39,11 +40,12 @@ const GeneraltemsListComponent = () => {
     <div>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center">
-            Browse Our Collections
+          <h2 className="text-3xl font-bold tracking-tight text-orange-500 mb-5">
+            Find Stuff 
           </h2>
+          <SearchBarComponent/>
 
-          <div className="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          <div className="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
             {/* CARD (VANILLA) NOT PROPPERLY DESIGNED YET */}
             {itemsList &&
               itemsList.map((item) => {
@@ -53,7 +55,7 @@ const GeneraltemsListComponent = () => {
                     className="group relative"
                     onClick={() => handleItemSelect(item.id)}
                   >
-                    <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+                    <div className=" min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
                       <img
                         src={item.item_image}
                         alt="Front of men&#039;s Basic Tee in black."
@@ -74,7 +76,7 @@ const GeneraltemsListComponent = () => {
                         {/* <p className="mt-1 text-sm text-gray-500">
                           {item.item_location}
                         </p> */}
-                        <div className="mt-1 text-sm text-gray-900">
+                        <div className="mt-1 text-sm text-gray-900 mb-8">
                           <p className="mt-1 text-sm text-gray-900">
                             Price: ${item.item_base_price}
                           </p>

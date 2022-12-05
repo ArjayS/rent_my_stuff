@@ -12,6 +12,7 @@ import AcceptBidsPage from "./routes/AcceptBidsPage";
 import RegisterPage from "./routes/RegisterPage";
 import LoginPage from "./routes/LoginPage";
 import UserReviewsPage from "./routes/UserReviewsPage";
+import './index.css';
 
 const App = () => {
   return (

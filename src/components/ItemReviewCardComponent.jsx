@@ -28,9 +28,9 @@ const ItemReviewCardComponent = (props) => {
     <div>
       {itemReviewList.map((itemReview) => {
         return (
-          <div class="bg-gray-100 flex items-center justify-center">
+          <div class="bg-white flex items-center justify-center">
             <div class="px-10">
-              <div class="bg-white max-w-xl rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
+              <div class="my-4 bg-gray-800 w-[35rem] rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500">
                 <div class="">
                   <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-4">
@@ -41,7 +41,7 @@ const ItemReviewCardComponent = (props) => {
                           alt=""
                         />
                       </div>
-                      <div class="text-sm font-semibold">
+                      <div class="text-white text-sm font-semibold">
                         {itemReview.renter_name}{" "}
                       </div>
                     </div>
@@ -52,7 +52,7 @@ const ItemReviewCardComponent = (props) => {
                       rating={itemReview.item_rating}
                     />
                   </div>
-                  <p class="mt-4 text-md text-gray-600">
+                  <p class="mt-4 text-md text-white">
                     {itemReview.item_message}
                   </p>
                 </div>

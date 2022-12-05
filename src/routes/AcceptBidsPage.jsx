@@ -9,7 +9,6 @@ import StoreNavigationComponent from "../components/StoreNavigationComponent";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import UserFinder from "../apis/UserFinder";
 
-
 export default function AcceptBidsPage() {
   const [bidsList, setBidsList] = useState([]);
   const [itemName, setItemName] = useState("");
@@ -18,8 +17,9 @@ export default function AcceptBidsPage() {
   const [rentalType, setRentalType] = useState("Approved");
   const [showModal, setShowModal] = useState(false);
   const [renter, setRenter] = useState([]);
-  const [itemId, setItemId] = useState([])
+  const [itemId, setItemId] = useState([]);
   let { id } = useParams();
+  const [approvedCount, setApprovedCount] = useState(0);
 
   const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
 
@@ -40,8 +40,7 @@ export default function AcceptBidsPage() {
     };
 
     fetchUser();
-  })
-
+  });
 
   useEffect(() => {
     const fetchItemData = async () => {
@@ -55,6 +54,17 @@ export default function AcceptBidsPage() {
     };
 
     fetchItemData();
+
+    const countBids = (bids) => {
+      for(let bid of bids){
+        if(bid.rsrv_approval==="Approved"){
+          setApprovedCount(approvedCount + 1)
+        }
+      } return
+    }
+
+    countBids(bidsList)
+    console.log("approved bids count",approvedCount)
   }, [bidsStatus]);
 
   const handleApproval = async (id, action) => {
@@ -80,8 +90,8 @@ export default function AcceptBidsPage() {
   const handleClick = (e) => {
     setShowModal(true);
     setRenter(e.guest_id);
-    setItemId(e.item_id)
-    console.log('modal info:', e)
+    setItemId(e.item_id);
+    console.log("modal info:", e);
   };
 
   const closeModal = (value) => {
@@ -90,7 +100,7 @@ export default function AcceptBidsPage() {
 
   return (
     <>
-    <StoreNavigationComponent />
+      <StoreNavigationComponent />
       <div class="bg-white">
         <div class="mx-auto w-3/4 py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">Bids</h2>
@@ -100,10 +110,7 @@ export default function AcceptBidsPage() {
         </div>
         <div class="w-3/4 group relative mx-auto ">
           <div class="flex item-center mb-10 min-h-80 aspect-w-1 aspect-h-1 w-3/4 overflow-hidden rounded-md bg-white group-hover:opacity-75 lg:aspect-none lg:h-80">
-            <img
-              src={itemImage}
-              alt={itemName}
-            />
+            <img src={itemImage} alt={itemName} />
           </div>
         </div>
         <div class="container mx-auto w-3/4">
@@ -134,10 +141,22 @@ export default function AcceptBidsPage() {
             </button>
           </div>
 
-          <BidsTable bids={bidsList} approval={handleApproval} type={rentalType} openmodal={handleClick}/>
+          <BidsTable
+            bids={bidsList}
+            approval={handleApproval}
+            type={rentalType}
+            openmodal={handleClick}
+          />
         </div>
       </div>
-      {showModal && <UserReviewModal reviewer={verifiedStatus.id} renter={renter} item={itemId} closeModal={closeModal}/>}
+      {showModal && (
+        <UserReviewModal
+          reviewer={verifiedStatus.id}
+          renter={renter}
+          item={itemId}
+          closeModal={closeModal}
+        />
+      )}
     </>
   );
 }

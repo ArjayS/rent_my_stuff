@@ -8,6 +8,7 @@ import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import UserFinder from "../apis/UserFinder";
 import { useNavigate } from "react-router-dom";
 import StoreNavigationComponent from "../components/StoreNavigationComponent";
+import '../index.css'
 
 const PersonalUserPage = () => {
   const [itemData, setItemData] = useState([]);
@@ -83,12 +84,11 @@ const PersonalUserPage = () => {
       {/* <h1 className="text-3xl font-bold underline">
         Home Page! Welcome, {verifiedStatus.user_name}
       </h1> */}
-      {showModal && (
-        <NewItemModal closeModal={closeModal} owner={verifiedStatus.id} />
-      )}
-      <div class="bg-gray-50">
+
+      {showModal && <NewItemModal closeModal={closeModal} owner={verifiedStatus.id}/>}
+      <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+          <h2 class="text-2xl font-bold tracking-tight text-orange-500">
             My Stuff
           </h2>
 
