@@ -4,8 +4,7 @@ import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
 
 const GeneraltemsListComponent = () => {
-  const { itemsList, verifiedStatus, setVerifiedStatus } =
-    useContext(RentMyStuffContext);
+  const { itemsList, verifiedStatus } = useContext(RentMyStuffContext);
 
   console.log("general items: ", verifiedStatus);
   let navigate = useNavigate();
