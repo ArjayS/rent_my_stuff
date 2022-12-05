@@ -6,25 +6,6 @@ import { useNavigate } from "react-router-dom";
 const StoreNavigationComponent = () => {
   let navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     try {
-  //       const response = await UserFinder.get("/login");
-
-  //       if (response.data.loggedIn) {
-  //         console.log("get request for /login:", response.data.data.user);
-  //         setVerifiedStatus(response.data.data.user);
-  //       } else {
-  //         setVerifiedStatus("Nothing");
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-
-  //   fetchUser();
-  // }, []);
-
   const { showOptions, setShowOptions, verifiedStatus, setVerifiedStatus } =
     useContext(RentMyStuffContext);
 
@@ -90,6 +71,8 @@ const StoreNavigationComponent = () => {
   const handleClickLogout = async (event) => {
     event.preventDefault();
     try {
+      const response = await UserFinder.post("/logout");
+      setVerifiedStatus(response.data);
       navigate(`/login`);
       // Need to add the ability to clear cookies
     } catch (error) {

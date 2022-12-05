@@ -49,6 +49,24 @@ const LoginPage = () => {
     };
 
     fetchUser();
+
+    const fetchLoggedOutUser = async () => {
+      try {
+        const response = await UserFinder.get("/logout");
+
+        console.log("get request for /logout:", response);
+
+        if (!response.data.loggedIn) {
+          setVerifiedStatus(response.data.data.user);
+        } else {
+          setVerifiedStatus("Nothing");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchLoggedOutUser();
   }, []);
 
   return (
