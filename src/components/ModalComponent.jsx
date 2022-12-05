@@ -22,9 +22,7 @@ const ModalComponent = (props) => {
 
   if (!visible) return null;
 
-  console.log("place bid modal form:", verifiedStatus);
-
-  const renterId = verifiedStatus.id;
+  console.log("place bid modal form:", verifiedStatus.id);
 
   // Accessing the route to POST new Bid
   const handlePlaceBidSubmit = async (event) => {
@@ -34,7 +32,7 @@ const ModalComponent = (props) => {
       const response = await ReservationFinder.post(
         `/reserve/${selectedItemId}`,
         {
-          guest_id: renterId,
+          guest_id: verifiedStatus.id,
           rsrv_start_date: reservationStartDate,
           rsrv_end_date: reservationEndDate,
           rsrv_price_bid: bidPrice,
