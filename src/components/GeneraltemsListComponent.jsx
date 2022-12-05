@@ -11,7 +11,7 @@ const GeneraltemsListComponent = () => {
   let navigate = useNavigate();
 
   const renderRating = (item) => {
-    if (!item.count) {
+    if (!item.count && !item.average_rating) {
       return (
         <span className="text-sm font-medium text-gray-700">0 reviews</span>
       );

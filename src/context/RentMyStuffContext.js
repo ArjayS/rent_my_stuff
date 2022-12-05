@@ -62,6 +62,14 @@ export const RentMyStuffContextProvider = (props) => {
   };
   // <-------------------------------------------------------------------------
 
+  const addItemList = (itemNew) => {
+    setItemsList([...itemsList, itemNew]);
+  };
+
+  const addItemListDefault = (itemNewDefault) => {
+    setItemListDefault([...itemListDefault, itemNewDefault]);
+  };
+
   const addReservation = (reservation) => {
     setReservationsList([...reservationsList, reservation]);
   };
@@ -75,6 +83,8 @@ export const RentMyStuffContextProvider = (props) => {
       value={{
         itemsList: itemsList,
         setItemsList,
+        addItemList,
+        addItemListDefault,
         inputItems: inputItems,
         setInputItems,
         itemListDefault: itemListDefault,
