@@ -5,7 +5,7 @@ import StarRatingComponent from "../components/StarRatingComponent";
 import ModalComponent from "../components/ModalComponent";
 
 const SpecificItemComponent = (props) => {
-  const { selectedItem, setSelectedItem, verifiedStatus } =
+  const { selectedItem, setSelectedItem, verifiedStatus, isSubmitted } =
     useContext(RentMyStuffContext);
 
   const [showModalComponent, setShowModalComponent] = useState(false);
@@ -118,16 +118,18 @@ const SpecificItemComponent = (props) => {
                 <p>Owned by: {selectedItem.owner_name}</p>
               </div>
 
-              <form class="mt-10">
-                {/* Button: Place a Bid */}
-                <button
-                  type="submit"
-                  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  onClick={handleClickModal}
-                >
-                  Place a bid
-                </button>
-              </form>
+              {verifiedStatus && (
+                <form className={isSubmitted ? "invisible" : "mt-10"}>
+                  {/* Button: Place a Bid */}
+                  <button
+                    type="submit"
+                    class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    onClick={handleClickModal}
+                  >
+                    Place a bid
+                  </button>
+                </form>
+              )}
 
               <ModalComponent
                 selectedItemId={id}

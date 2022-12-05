@@ -6,12 +6,7 @@ import { useNavigate } from "react-router-dom";
 const StoreNavigationComponent = () => {
   let navigate = useNavigate();
 
-  const { showOptions, setShowOptions, verifiedStatus, setVerifiedStatus } =
-    useContext(RentMyStuffContext);
-
-  const handleClickHamburger = () => {
-    setShowOptions(!showOptions);
-  };
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
 
   const handleClickItemsHomePage = async (event) => {
     event.preventDefault();
@@ -126,7 +121,7 @@ const StoreNavigationComponent = () => {
             )}
             {verifiedStatus && (
               <button
-                onClick={handleClickStuffIRented}
+                onClick={handleClickMyReviews}
                 type="button"
                 class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
                 id="menu-button"
