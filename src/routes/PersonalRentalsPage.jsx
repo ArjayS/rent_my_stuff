@@ -31,13 +31,13 @@ const PersonalUserPage = () => {
       }
     };
 
-    fetchUser();
-  })
+     fetchUser();
+  // })
 
-  useEffect(() => {
+  // useEffect(() => {
     const fetchRentalData = async () => {
       try {
-        const response = await StuffData.get("/users/2/rented")
+        const response = await StuffData.get(`/users/${verifiedStatus.id}/rented`)
         console.log("rentals:",response.data.data.items)
         setRentalData(response.data.data.items)
       } catch(err){}
