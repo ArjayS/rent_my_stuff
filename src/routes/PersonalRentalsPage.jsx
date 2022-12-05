@@ -1,16 +1,38 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import StuffData from "../api/StuffData";
 import MyListofStuff from "../components/My stuff/MyListOfStuff";
 import StuffIRented from "../components/My stuff/StuffIRented";
 import NewItemModal from "../components/My stuff/NewItemModal";
+import StoreNavigationComponent from "../components/StoreNavigationComponent";
+import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import UserFinder from "../apis/UserFinder";
 
 const PersonalUserPage = () => {
 
   const [rentalData, setRentalData] = useState([]);
   const [rentalType, setRentalType] = useState("Approved")
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await UserFinder.get("/login");
+
+        if (response.data.loggedIn) {
+          console.log("get request for /login:", response.data.data.user);
+          setVerifiedStatus(response.data.data.user);
+        } else {
+          setVerifiedStatus("Nothing");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+  })
 
   useEffect(() => {
     const fetchRentalData = async () => {
@@ -30,6 +52,8 @@ const PersonalUserPage = () => {
 
   return (
     <>
+    <StoreNavigationComponent />
+
       <div class="bg-white">
         
 

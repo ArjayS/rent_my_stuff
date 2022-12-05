@@ -20,6 +20,8 @@ export default function StuffIRented(props){
   } 
 
   filter(props)
+
+  console.log("approved items:",approved)
   
   const bidsApproved = approved.map((item, id) => {
     return (      
@@ -29,6 +31,8 @@ export default function StuffIRented(props){
         bid={item.rsrv_price_bid}
         key={id}
         image={item.item_image}
+        id={item.item_id}
+        type={"approved"}
       />
     );
   })
