@@ -61,7 +61,7 @@ const SpecificItemComponent = (props) => {
 
   return (
     <div>
-      <h1 className="mt-10 text-3xl font-bold underline">Item Details Page</h1>
+      
       {/* <!--
   This example requires some changes to your config:
   
@@ -91,7 +91,7 @@ const SpecificItemComponent = (props) => {
               <img
                 src={selectedItem.item_image}
                 alt={selectedItem.item_descrpition}
-                class="h-full w-full object-cover object-center"
+                class="h-full w-1/3 object-cover object-center"
               />
             </div>
           </div>
@@ -122,7 +122,7 @@ const SpecificItemComponent = (props) => {
                 {/* Button: Place a Bid */}
                 <button
                   type="submit"
-                  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-gray-800 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   onClick={handleClickModal}
                 >
                   Place a bid

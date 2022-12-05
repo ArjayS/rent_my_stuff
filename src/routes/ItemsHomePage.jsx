@@ -29,7 +29,7 @@ const ItemsHomePage = () => {
   return (
     <div>
       <StoreNavigationComponent userInfo={verifiedStatus} />
-      <SearchBarComponent />
+      {/* <SearchBarComponent /> */}
       <GeneraltemsListComponent />
     </div>
   );

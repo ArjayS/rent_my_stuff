@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { RentMyStuffContext } from "../context/RentMyStuffContext";
 import StarRatingComponent from "./StarRatingComponent";
 import { useNavigate } from "react-router-dom";
+import SearchBarComponent from "./SearchBarComponent";
 
 const GeneraltemsListComponent = () => {
   const { itemsList, verifiedStatus, setVerifiedStatus } =
@@ -41,8 +42,9 @@ const GeneraltemsListComponent = () => {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 text-center">
-            Browse Our Collections
+            Find Stuff 
           </h2>
+          <SearchBarComponent/>
 
           <div className="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {/* CARD (VANILLA) NOT PROPPERLY DESIGNED YET */}

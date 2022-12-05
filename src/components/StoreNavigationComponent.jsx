@@ -81,103 +81,130 @@ const StoreNavigationComponent = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-6xl font-light text-center">
-        Welcome! {verifiedStatus.user_name}
-      </h1>
-      <div className=" bg-gray-200 flex justify-center items-center">
-        <div class="relative inline-block text-left">
-          <div>
-            {verifiedStatus && (
-              <button
-                onClick={handleClickItemsHomePage}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                Browse Our Stuff
-              </button>
-            )}
-            {verifiedStatus && (
-              <button
-                onClick={handleClickMyStuff}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                My Stuff
-              </button>
-            )}
-            {verifiedStatus && (
-              <button
-                onClick={handleClickStuffIRented}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                Stuff I Rented
-              </button>
-            )}
-            {verifiedStatus && (
-              <button
-                onClick={handleClickStuffIRented}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                My Reviews
-              </button>
-            )}
-            {verifiedStatus && (
-              <button
-                onClick={handleClickLogout}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                Logout
-              </button>
-            )}
-
-            {!verifiedStatus && (
-              <button
-                onClick={handleClickRegister}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                Register
-              </button>
-            )}
-            {!verifiedStatus && (
-              <button
-                onClick={handleClickLogin}
-                type="button"
-                class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                id="menu-button"
-                aria-expanded="true"
-                aria-haspopup="true"
-              >
-                Login
-              </button>
-            )}
+    <>
+      <nav class="bg-gray-900 border-gray-900 ">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
+          
+        <a href="" class="flex items-center">
+            <img src={process.env.PUBLIC_URL + '/img/logo.svg'} class="h-6 -mb-8 mr-3 " alt="rent my stuff Logo" />
+        </a>
+            
+          
+          <div class="flex items-center">
+            <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+              Welcome! {verifiedStatus.user_name}
+            </h1>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </nav>
+      <nav class="bg-gray-900">
+        <div class="max-w-screen-xl px-4 py-3 mx-auto md:px-6">
+          <div class="flex items-center">
+            <ul class="flex flex-row mt-0 mr-6 space-x-8 text-sm font-medium">
+              <li>
+                {verifiedStatus && (
+                  <button
+                    onClick={handleClickItemsHomePage}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    Browse Our Stuff
+                  </button>
+                )}
+              </li>
+              <li>
+                {verifiedStatus && (
+                  <button
+                    onClick={handleClickMyStuff}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    My Stuff
+                  </button>
+                )}
+              </li>
+              <li>
+                {verifiedStatus && (
+                  <button
+                    onClick={handleClickStuffIRented}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    Stuff I Rented
+                  </button>
+                )}
+              </li>
+              <li>
+                {verifiedStatus && (
+                  <button
+                    onClick={handleClickMyReviews}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    My Reviews
+                  </button>
+                )}
+              </li>
+              <li>
+                {verifiedStatus && (
+                  <button
+                    onClick={handleClickLogout}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    Logout
+                  </button>
+                )}
+              </li>
+              <li>
+                {!verifiedStatus && (
+                  <button
+                    onClick={handleClickRegister}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    Register
+                  </button>
+                )}
+              </li>
+              <li>
+                {!verifiedStatus && (
+                  <button
+                    onClick={handleClickLogin}
+                    type="button"
+                    class="inline-flex w-full justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-100 shadow-sm hover:text-sky-500"
+                    id="menu-button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                  >
+                    Login
+                  </button>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </>
+  )
 };
 
 export default StoreNavigationComponent;
