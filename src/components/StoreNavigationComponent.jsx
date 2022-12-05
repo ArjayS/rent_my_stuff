@@ -86,12 +86,12 @@ const StoreNavigationComponent = () => {
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
           
         <a href="" class="flex items-center">
-            <img src={process.env.PUBLIC_URL + '/img/logo.svg'} class="h-6 -mb-8 mr-3 " alt="rent my stuff Logo" />
+            <img src={process.env.PUBLIC_URL + '/img/logo.svg'} class="h-6 -mb-8 -mt-2 mr-3 " alt="rent my stuff Logo" />
         </a>
             
           
           <div class="flex items-center">
-            <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <h1 className="mt-3 self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               Welcome! {verifiedStatus.user_name}
             </h1>
           </div>
@@ -111,7 +111,7 @@ const StoreNavigationComponent = () => {
                     aria-expanded="true"
                     aria-haspopup="true"
                   >
-                    Browse Our Stuff
+                    Browse Stuff
                   </button>
                 )}
               </li>

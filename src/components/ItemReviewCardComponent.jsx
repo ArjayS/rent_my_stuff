@@ -51,7 +51,7 @@ const ItemReviewCardComponent = (props) => {
                       rating={itemReview.item_rating}
                     />
                   </div>
-                  <p class="text-white mt-4 text-md text-gray-600">
+                  <p class="mt-4 text-md text-white">
                     {itemReview.item_message}
                   </p>
                 </div>
