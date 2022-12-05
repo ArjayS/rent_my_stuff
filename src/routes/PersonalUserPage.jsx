@@ -80,7 +80,7 @@ const PersonalUserPage = () => {
       {/* <h1 className="text-3xl font-bold underline">
         Home Page! Welcome, {verifiedStatus.user_name}
       </h1> */}
-      {showModal && <NewItemModal closeModal={closeModal} />}
+      {showModal && <NewItemModal closeModal={closeModal} owner={verifiedStatus.id}/>}
       <div class="bg-gray-50">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">

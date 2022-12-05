@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import StuffData from '../../api/StuffData'
 
 
-export default function NewItemModal({closeModal}) {
+export default function NewItemModal({closeModal, owner}) {
   
   const [open, setOpen] = useState(true)
   const cancelButtonRef = useRef(null)
@@ -18,7 +18,7 @@ export default function NewItemModal({closeModal}) {
     e.preventDefault()
     try {
       const response = await StuffData.post("items/", {
-        owner_id: 2, 
+        owner_id: owner, 
         item_name: ItemName,
         item_location: ItemLocation, 
         item_base_price: ItemPrice,

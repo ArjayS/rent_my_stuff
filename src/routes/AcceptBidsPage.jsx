@@ -5,6 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import StuffData from "../api/StuffData";
 import UserReviewModal from "../components/My stuff/UserReviewModal";
+import StoreNavigationComponent from "../components/StoreNavigationComponent";
 
 
 export default function AcceptBidsPage() {
@@ -66,6 +67,7 @@ export default function AcceptBidsPage() {
 
   return (
     <>
+    <StoreNavigationComponent />
       <div class="bg-white">
         <div class="mx-auto w-3/4 py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">Bids</h2>
