@@ -10,8 +10,6 @@ export const RentMyStuffContextProvider = (props) => {
   const [itemsList, setItemsList] = useState([]);
   // Used in ItemDetailsPage
   const [selectedItem, setSelectedItem] = useState([]);
-  // Used in StoreNavigationComponent
-  const [showOptions, setShowOptions] = useState(false);
   // Used in Reservations
   const [reservationsList, setReservationsList] = useState([]);
   const [reservationStartDate, setReservationStartDate] = useState("");
@@ -33,6 +31,7 @@ export const RentMyStuffContextProvider = (props) => {
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
   const [verifiedStatus, setVerifiedStatus] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -62,6 +61,14 @@ export const RentMyStuffContextProvider = (props) => {
   };
   // <-------------------------------------------------------------------------
 
+  const addItemList = (itemNew) => {
+    setItemsList([...itemsList, itemNew]);
+  };
+
+  const addItemListDefault = (itemNewDefault) => {
+    setItemListDefault([...itemListDefault, itemNewDefault]);
+  };
+
   const addReservation = (reservation) => {
     setReservationsList([...reservationsList, reservation]);
   };
@@ -75,6 +82,8 @@ export const RentMyStuffContextProvider = (props) => {
       value={{
         itemsList: itemsList,
         setItemsList,
+        addItemList,
+        addItemListDefault,
         inputItems: inputItems,
         setInputItems,
         itemListDefault: itemListDefault,
@@ -82,8 +91,6 @@ export const RentMyStuffContextProvider = (props) => {
         updateInputItems: updateInputItems,
         selectedItem,
         setSelectedItem,
-        showOptions,
-        setShowOptions,
         reservationsList,
         setReservationsList,
         reservationStartDate,
@@ -118,6 +125,8 @@ export const RentMyStuffContextProvider = (props) => {
         setPassword,
         verifiedStatus,
         setVerifiedStatus,
+        isSubmitted,
+        setIsSubmitted,
       }}
     >
       {props.children}

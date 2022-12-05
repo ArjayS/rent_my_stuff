@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import StoreNavigationComponent from "../components/StoreNavigationComponent";
 import SpecificItemComponent from "../components/SpecificItemComponent";
 import ItemReviewCardComponent from "../components/ItemReviewCardComponent";
 import WriteFormComponent from "../components/WriteFormComponent";
 import { useParams } from "react-router-dom";
+import { RentMyStuffContext } from "../context/RentMyStuffContext";
 
 const ItemDetailsPage = () => {
+  const { verifiedStatus } = useContext(RentMyStuffContext);
+
   const { id } = useParams();
   return (
     <>
@@ -15,9 +18,11 @@ const ItemDetailsPage = () => {
       <div class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pb-16 lg:pr-8">
 
       <ItemReviewCardComponent id={id} />
+
       </div>
-      <WriteFormComponent id={id} />
+      {verifiedStatus && <WriteFormComponent id={id} />}
       </div>
+
     </>
   );
 };

@@ -4,7 +4,8 @@ import StarRatingComponent from "./StarRatingComponent";
 import ItemReviewFinder from "../apis/ItemReviewFinder";
 
 const ItemReviewCardComponent = (props) => {
-  const { itemReviewList, setItemReviewList } = useContext(RentMyStuffContext);
+  const { itemReviewList, setItemReviewList, verifiedStatus } =
+    useContext(RentMyStuffContext);
 
   const { id } = props;
 

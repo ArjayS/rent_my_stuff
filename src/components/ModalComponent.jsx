@@ -12,6 +12,7 @@ const ModalComponent = (props) => {
     bidPrice,
     setBidPrice,
     verifiedStatus,
+    setIsSubmitted,
   } = useContext(RentMyStuffContext);
 
   const { visible, onClose, selectedItemName, selectedItemId } = props;
@@ -45,6 +46,7 @@ const ModalComponent = (props) => {
       setReservationEndDate("");
       setBidPrice("");
       onClose();
+      setIsSubmitted(true);
 
       // Haven't seen the get all of reservations
       addReservation(response.data.data.item);
