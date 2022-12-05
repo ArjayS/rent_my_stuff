@@ -1,24 +1,46 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import StuffData from "../api/StuffData";
 import MyListofStuff from "../components/My stuff/MyListOfStuff";
 import StuffIRented from "../components/My stuff/StuffIRented";
 import NewItemModal from "../components/My stuff/NewItemModal";
 import StoreNavigationComponent from "../components/StoreNavigationComponent";
+import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import UserFinder from "../apis/UserFinder";
 
 const PersonalUserPage = () => {
   const [rentalData, setRentalData] = useState([]);
-  const [rentalType, setRentalType] = useState("Approved");
+  const [rentalType, setRentalType] = useState("Approved")
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
 
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await UserFinder.get("/login");
+
+        if (response.data.loggedIn) {
+          console.log("get request for /login:", response.data.data.user);
+          setVerifiedStatus(response.data.data.user);
+        } else {
+          setVerifiedStatus("Nothing");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+     fetchUser();
+  // })
+
+  // useEffect(() => {
     const fetchRentalData = async () => {
       try {
-        const response = await StuffData.get("/users/2/rented");
-        console.log("rentals:", response.data.data.items);
-        setRentalData(response.data.data.items);
-      } catch (err) {}
-    };
+        const response = await StuffData.get(`/users/${verifiedStatus.id}/rented`)
+        console.log("rentals:",response.data.data.items)
+        setRentalData(response.data.data.items)
+      } catch(err){}
+    }
 
     fetchRentalData();
   }, []);
@@ -29,7 +51,7 @@ const PersonalUserPage = () => {
 
   return (
     <>
-      <StoreNavigationComponent />
+    <StoreNavigationComponent />
       <div class="bg-white">
         <div class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">

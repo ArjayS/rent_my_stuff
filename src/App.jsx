@@ -11,7 +11,6 @@ import { RentMyStuffContextProvider } from "./context/RentMyStuffContext";
 import AcceptBidsPage from "./routes/AcceptBidsPage";
 import RegisterPage from "./routes/RegisterPage";
 import LoginPage from "./routes/LoginPage";
-import EmptyPage from "./routes/EmptyPage";
 import UserReviewsPage from "./routes/UserReviewsPage";
 
 const App = () => {
@@ -23,12 +22,11 @@ const App = () => {
             <Route path="/" element={<ItemsHomePage />} />
             <Route path="/items/:id/item" element={<ItemDetailsPage />} />
             <Route path="/mystuff" element={<PersonalUserPage />} />
-            <Route path="/users/:id/userreview" element={<UserReviewsPage />} />
             <Route path="/stuffirented" element={<PersonalRentalsPage />} />
+            <Route path="/myreviews" element={<UserReviewsPage />} />
             <Route path="/items/:id/bids" element={<AcceptBidsPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/empty" element={<EmptyPage />} />
           </Routes>
         </BrowserRouter>
       </RentMyStuffContextProvider>

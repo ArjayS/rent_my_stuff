@@ -5,6 +5,9 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import StuffData from "../api/StuffData";
 import UserReviewModal from "../components/My stuff/UserReviewModal";
+import StoreNavigationComponent from "../components/StoreNavigationComponent";
+import { RentMyStuffContext } from "../context/RentMyStuffContext";
+import UserFinder from "../apis/UserFinder";
 
 
 export default function AcceptBidsPage() {
@@ -17,6 +20,27 @@ export default function AcceptBidsPage() {
   const [renter, setRenter] = useState([]);
   const [itemId, setItemId] = useState([])
   let { id } = useParams();
+
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await UserFinder.get("/login");
+
+        if (response.data.loggedIn) {
+          console.log("get request for /login:", response.data.data.user);
+          setVerifiedStatus(response.data.data.user);
+        } else {
+          setVerifiedStatus("Nothing");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUser();
+  })
 
 
   useEffect(() => {
@@ -66,6 +90,7 @@ export default function AcceptBidsPage() {
 
   return (
     <>
+    <StoreNavigationComponent />
       <div class="bg-white">
         <div class="mx-auto w-3/4 py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 class="text-2xl font-bold tracking-tight text-gray-900">Bids</h2>
@@ -112,7 +137,7 @@ export default function AcceptBidsPage() {
           <BidsTable bids={bidsList} approval={handleApproval} type={rentalType} openmodal={handleClick}/>
         </div>
       </div>
-      {showModal && <UserReviewModal reviewer={id} renter={renter} item={itemId} closeModal={closeModal}/>}
+      {showModal && <UserReviewModal reviewer={verifiedStatus.id} renter={renter} item={itemId} closeModal={closeModal}/>}
     </>
   );
 }
