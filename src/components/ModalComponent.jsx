@@ -25,10 +25,12 @@ const ModalComponent = (props) => {
   console.log("place bid modal form:", verifiedStatus);
 
   const renterId = verifiedStatus.id;
+
   // Accessing the route to POST new Bid
   const handlePlaceBidSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log("Selected item id: ", selectedItemId);
       const response = await ReservationFinder.post(
         `/reserve/${selectedItemId}`,
         {
@@ -91,6 +93,7 @@ const ModalComponent = (props) => {
         </div>
         <div className="text-center">
           <button
+            type="submit"
             onClick={handlePlaceBidSubmit}
             className="px-5 py-2 bg-gray-700 text-white rounded"
           >

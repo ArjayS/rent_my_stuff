@@ -23,7 +23,7 @@ const LoginPage = () => {
         setVerifiedStatus(response.data.message);
       } else {
         setVerifiedStatus(response.data);
-        navigate(`/users`);
+        navigate(`/mystuff`);
         // console.log(response.data);
       }
     } catch (error) {

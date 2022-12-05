@@ -22,9 +22,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<ItemsHomePage />} />
             <Route path="/items/:id/item" element={<ItemDetailsPage />} />
-            <Route path="/users" element={<PersonalUserPage />} />
+            <Route path="/mystuff" element={<PersonalUserPage />} />
             <Route path="/users/:id/userreview" element={<UserReviewsPage />} />
-            <Route path="/users/:id/rented" element={<PersonalRentalsPage />} />
+            <Route path="/stuffirented" element={<PersonalRentalsPage />} />
             <Route path="/items/:id/bids" element={<AcceptBidsPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />

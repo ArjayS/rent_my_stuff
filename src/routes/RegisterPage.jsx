@@ -29,7 +29,7 @@ const RegisterPage = () => {
       });
 
       setVerifiedStatus(response.data.data.user);
-      navigate(`/users`);
+      navigate(`/mystuff`);
 
       console.log(response.data.data.user);
     } catch (error) {
