@@ -5,7 +5,7 @@ import StarRatingComponent from "../components/StarRatingComponent";
 import ModalComponent from "../components/ModalComponent";
 
 const SpecificItemComponent = (props) => {
-  const { selectedItem, setSelectedItem, verifiedStatus } =
+  const { selectedItem, setSelectedItem, verifiedStatus, isSubmitted } =
     useContext(RentMyStuffContext);
 
   const [showModalComponent, setShowModalComponent] = useState(false);
@@ -119,7 +119,7 @@ const SpecificItemComponent = (props) => {
               </div>
 
               {verifiedStatus && (
-                <form class="mt-10">
+                <form className={isSubmitted ? "invisible" : "mt-10"}>
                   {/* Button: Place a Bid */}
                   <button
                     type="submit"

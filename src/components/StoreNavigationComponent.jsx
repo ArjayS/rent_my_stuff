@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 const StoreNavigationComponent = () => {
   let navigate = useNavigate();
 
-  const { showOptions, setShowOptions, verifiedStatus, setVerifiedStatus } =
-    useContext(RentMyStuffContext);
+  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
 
   const handleClickItemsHomePage = async (event) => {
     event.preventDefault();
