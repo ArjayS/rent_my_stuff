@@ -61,7 +61,6 @@ const SpecificItemComponent = (props) => {
 
   return (
     <div>
-      
       {/* <!--
   This example requires some changes to your config:
   
@@ -119,7 +118,10 @@ const SpecificItemComponent = (props) => {
               </div>
 
               {verifiedStatus && (
-                <form className={isSubmitted ? "invisible" : "mt-10"}>
+                <form
+                  key={selectedItem.id}
+                  className={isSubmitted ? "invisible" : "mt-10"}
+                >
                   {/* Button: Place a Bid */}
                   <button
                     type="submit"

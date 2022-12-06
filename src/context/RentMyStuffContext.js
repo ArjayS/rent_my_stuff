@@ -32,6 +32,7 @@ export const RentMyStuffContextProvider = (props) => {
   const [password, setPassword] = useState("");
   const [verifiedStatus, setVerifiedStatus] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [date, setDate] = useState();
 
   // Item Search feature <-----------------------------------------------------
   useEffect(() => {
@@ -127,6 +128,8 @@ export const RentMyStuffContextProvider = (props) => {
         setVerifiedStatus,
         isSubmitted,
         setIsSubmitted,
+        date,
+        setDate,
       }}
     >
       {props.children}

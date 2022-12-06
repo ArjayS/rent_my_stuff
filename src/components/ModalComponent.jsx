@@ -70,14 +70,14 @@ const ModalComponent = (props) => {
 
         <div className="flex flex-col">
           <input
-            type="text"
+            type="date"
             className="border border-gray-700 p-2 rounded mb-5"
             placeholder="Start Date"
             value={reservationStartDate}
             onChange={(event) => setReservationStartDate(event.target.value)}
           />
           <input
-            type="text"
+            type="date"
             className="border border-gray-700 p-2 rounded mb-5"
             placeholder="End Date"
             value={reservationEndDate}
