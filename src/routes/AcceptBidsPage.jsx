@@ -54,17 +54,8 @@ export default function AcceptBidsPage() {
     };
 
     fetchItemData();
+    
 
-    const countBids = (bids) => {
-      for(let bid of bids){
-        if(bid.rsrv_approval==="Approved"){
-          setApprovedCount(approvedCount + 1)
-        }
-      } return
-    }
-
-    countBids(bidsList)
-    console.log("approved bids count",approvedCount)
   }, [bidsStatus]);
 
   const handleApproval = async (id, action) => {
