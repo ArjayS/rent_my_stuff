@@ -86,7 +86,7 @@ const StoreNavigationComponent = () => {
             
           
           <div class="flex items-center">
-            <h1 className="mt-3 self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            <h1 className="mt-3 self-center text-xl font-semibold whitespace-nowrap text-white dark:text-white">
               Welcome! {verifiedStatus.user_name}
             </h1>
           </div>
