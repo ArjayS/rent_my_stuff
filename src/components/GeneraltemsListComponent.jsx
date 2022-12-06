@@ -5,35 +5,15 @@ import { useNavigate } from "react-router-dom";
 import SearchBarComponent from "./SearchBarComponent";
 
 const GeneraltemsListComponent = () => {
-  const { itemsList, verifiedStatus } = useContext(RentMyStuffContext);
+  const { itemsList, updateInputItems, verifiedStatus } =
+    useContext(RentMyStuffContext);
 
   console.log("general items: ", verifiedStatus);
   let navigate = useNavigate();
 
-  const renderRating = (item) => {
-    if (!item.count && !item.average_rating) {
-      return (
-        <span className="text-sm font-medium text-gray-700">0 reviews</span>
-      );
-    }
-    return (
-      <>
-        <h3 className="text-sm font-medium text-gray-700">
-          <span>
-            <span aria-hidden="true" className="absolute inset-0"></span>
-            {item.count} reviews
-          </span>
-        </h3>
-        <StarRatingComponent key={item.id} rating={item.average_rating} />
-        <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-          {item.average_rating} out of 5
-        </p>
-      </>
-    );
-  };
-
   const handleItemSelect = (id) => {
     navigate(`/items/${id}/item`);
+    updateInputItems("");
   };
 
   return (
@@ -41,9 +21,9 @@ const GeneraltemsListComponent = () => {
       <div className="bg-white">
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-orange-500 mb-5">
-            Find Stuff 
+            Find Stuff
           </h2>
-          <SearchBarComponent/>
+          <SearchBarComponent />
 
           <div className="mt-20 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
             {/* CARD (VANILLA) NOT PROPPERLY DESIGNED YET */}
@@ -82,7 +62,26 @@ const GeneraltemsListComponent = () => {
                           </p>
                         </div>
                       </div>
-                      <div>{renderRating(item)}</div>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-700">
+                          <span>
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            ></span>
+                            {item.count ? `${item.count} reviews` : "0 reviews"}
+                          </span>
+                        </h3>
+                        <StarRatingComponent
+                          key={item.id}
+                          rating={item.average_rating}
+                        />
+                        <p class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+                          {item.average_rating
+                            ? `${item.average_rating} out of 5`
+                            : ""}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 );

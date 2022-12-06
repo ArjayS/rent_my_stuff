@@ -6,12 +6,14 @@ import { useNavigate } from "react-router-dom";
 const StoreNavigationComponent = () => {
   let navigate = useNavigate();
 
-  const { verifiedStatus, setVerifiedStatus } = useContext(RentMyStuffContext);
+  const { verifiedStatus, setVerifiedStatus, updateInputItems } =
+    useContext(RentMyStuffContext);
 
   const handleClickItemsHomePage = async (event) => {
     event.preventDefault();
     try {
       navigate(`/`);
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -21,6 +23,7 @@ const StoreNavigationComponent = () => {
     event.preventDefault();
     try {
       navigate(`/mystuff`);
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +33,7 @@ const StoreNavigationComponent = () => {
     event.preventDefault();
     try {
       navigate(`/stuffirented`);
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +43,7 @@ const StoreNavigationComponent = () => {
     event.preventDefault();
     try {
       navigate(`/myreviews`);
-      // need to change the App.jsx route to /myreviews
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -49,6 +53,7 @@ const StoreNavigationComponent = () => {
     event.preventDefault();
     try {
       navigate(`/register`);
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -58,6 +63,7 @@ const StoreNavigationComponent = () => {
     event.preventDefault();
     try {
       navigate(`/login`);
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +75,7 @@ const StoreNavigationComponent = () => {
       const response = await UserFinder.post("/logout");
       setVerifiedStatus(response.data);
       navigate(`/login`);
-      // Need to add the ability to clear cookies
+      updateInputItems("");
     } catch (error) {
       console.log(error);
     }

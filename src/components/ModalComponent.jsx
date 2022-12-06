@@ -46,7 +46,7 @@ const ModalComponent = (props) => {
       setReservationEndDate("");
       setBidPrice("");
       onClose();
-      setIsSubmitted(true);
+      setIsSubmitted(false);
 
       // Haven't seen the get all of reservations
       addReservation(response.data.data.item);
