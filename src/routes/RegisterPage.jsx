@@ -38,9 +38,16 @@ const RegisterPage = () => {
   };
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Register Page</h1>
+      {/* <h1 className="text-3xl font-bold underline">Register Page</h1> */}
       <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+          <a href="" class="flex items-center">
+            <img
+              src={process.env.PUBLIC_URL + "/img/logo.svg"}
+              class="h-6 mt-5 mr-3 ml-3 mb-5"
+              alt="rent my stuff Logo"
+            />
+          </a>
           <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
@@ -59,7 +66,7 @@ const RegisterPage = () => {
                     name="username"
                     id="username"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name"
+                    placeholder="Your name"
                     required=""
                     onChange={(event) => {
                       setUserNameReg(event.target.value);
@@ -78,7 +85,7 @@ const RegisterPage = () => {
                     name="userimage"
                     id="userimage"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="imgur link"
+                    placeholder="image link"
                     required=""
                     onChange={(event) => {
                       setUserImageReg(event.target.value);
@@ -97,7 +104,7 @@ const RegisterPage = () => {
                     name="email"
                     id="email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
+                    placeholder="name@mail.com"
                     required=""
                     onChange={(event) => {
                       setUserEmailReg(event.target.value);

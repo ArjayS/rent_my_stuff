@@ -9,6 +9,7 @@ const SpecificItemComponent = (props) => {
     useContext(RentMyStuffContext);
 
   const [showModalComponent, setShowModalComponent] = useState(false);
+  // const [showPlaceBid, setShowPlaceBid] = useState(false);
 
   const { id } = props;
 
@@ -18,7 +19,6 @@ const SpecificItemComponent = (props) => {
     const fetchItemData = async () => {
       try {
         const response = await ItemFinder.get(`/${id}/item`);
-        // console.log(response.data.data.item);
         setSelectedItem(response.data.data.item);
       } catch (error) {
         console.log(error);
@@ -58,10 +58,13 @@ const SpecificItemComponent = (props) => {
   const handleOnCloseModal = () => {
     setShowModalComponent(false);
   };
+  console.log("item status: ", selectedItem.item_status);
+
+  // if (!isSubmitted) return null;
+  console.log("What is Submitted: ", isSubmitted);
 
   return (
     <div>
-      
       {/* <!--
   This example requires some changes to your config:
   
@@ -119,7 +122,12 @@ const SpecificItemComponent = (props) => {
               </div>
 
               {verifiedStatus && (
-                <form className={isSubmitted ? "invisible" : "mt-10"}>
+                <form
+                  key={selectedItem.id}
+                  // className={isSubmitted ? "invisible" : "mt-10"}
+                  className="mt-10"
+                  // hidden={isSubmitted}
+                >
                   {/* Button: Place a Bid */}
                   <button
                     type="submit"
@@ -130,6 +138,8 @@ const SpecificItemComponent = (props) => {
                   </button>
                 </form>
               )}
+
+              {/* {isSubmitted ? null : <Results />} */}
 
               <ModalComponent
                 selectedItemId={id}
@@ -156,21 +166,18 @@ const SpecificItemComponent = (props) => {
                 <p>{selectedItem.item_location}</p>
               </div> */}
 
-              <div class="mt-10">
+              {/* <div class="mt-10">
                 <h2 class="text-sm font-medium text-gray-900">Availability</h2>
-
                 <div class="mt-4 space-y-6">
                   <p class="text-sm text-gray-600">
-                    {
-                      (selectedItem.item_status = true ? (
-                        <p>Currently reserved</p>
-                      ) : (
-                        <p>Available for Rent</p>
-                      ))
-                    }
+                    {selectedItem.item_status ? (
+                      <p>Currently reserved</p>
+                    ) : (
+                      <p>Available for Rent</p>
+                    )}
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
