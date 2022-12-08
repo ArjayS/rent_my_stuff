@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Rent My Stuff
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Rent My Stuff is a multi-page e-commerce application that allows users to rent other users items.
 
-In the project directory, you can run:
+The way the app works is for a user to log in to an existing one, and browse the availble items for rent. When a prospective renter finds the item that they want, they can place a bid on that item as a request to rent it. The owner of the item will then go to their 'mystuff' page where the item that they own will have a button option called _item bids_. This _item bids_ button will allow them to see multiple people who want to rent their item based on the schedule and bid price they are willing to pay. The owner can either _Accept_ and _Reject_ that renter for that specific item which based on the renters 'trustworthiness' and/or the bid price they placed.
 
-### `npm start`
+The other functionality of our app also allows the owner to leave a review for the renter that they rented out the item too after the item is rented back to the owner and similarly a renter can leave a review for that specific item that they rented out from the owner.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Goals and Milestones for the project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Making the app respond to real-time events by implementing web-sockets.
 
-### `npm test`
+- Have a scannable QR code system for when the renter will puck up and drop of the item from the owner. This is to confirm that the renter got the item from the owner, and the renter returned the item back to the owner.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add a chat feature so that there is a way for the owner and the renter to communicate.
 
-### `npm run build`
+- Implement a payment method system such as Stripe in the app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Project members
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The members who did this project are [Robert Servado](https://github.com/ArjayS) and [Roberto Cervantes Betancourt](https://github.com/robertocervantesbetancourt)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Conception
 
-### `npm run eject`
+We did our Project Planning using Miro, [RentMyStuff](https://miro.com/app/board/uXjVPekaWGA=/?share_link_id=417791244789)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Setup Instruction
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install dependencies with,
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+After installing the dependencies run `npm start` to start the RentMyStuff Client File.
 
-## Learn More
+### Dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+  "dependencies": {
+    "@headlessui/react": "^1.7.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-rating-stars-component": "^2.2.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
+  }
+```
 
-### Code Splitting
+### Rent My Stuff API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Go to the [Rent MY Stuff API](https://github.com/ArjayS/rent_my_stuff_api) and follow the instruction on setting up both the installation of the dependencies and preparing the database and then hit `npm start` to run the Rent My Stuff API.
 
-### Analyzing the Bundle Size
+## Rent My Stuff GIF Functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Unauthenticated User Browsing the Site and Logging In as a Renter
 
-### Making a Progressive Web App
+![Unauthenticated User Browsing the Site and Logging In as a Renter]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Authenticated User Searching for an item and placing a bid as a Renter
 
-### Advanced Configuration
+![Authenticated User Searching for an item and placing a bid as a Renter]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Authenticated User (Owner) Accepting a Bid made by a Renter
 
-### Deployment
+![Authenticated User (Owner) Accepting a Bid made by a Renter]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Authenticated User (Owner) Placing a Review to the Renter
 
-### `npm run build` fails to minify
+![Authenticated User (Owner) Placing a Review to the Renter]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Authenticated User (Renter) Checking a Review made by an Owner of an item they rented
+
+![Authenticated User (Renter) Checking a Review made by an Owner of an item they rented]()
+
+#### Authenticated User Placing an Item Review on an Item as a Renter
+
+![Authenticated User Placing an Item Review on an Item as a Renter]()
+
+#### Authenticated User Adding an Item for rent
+
+![Authenticated User Adding an Item for rent]()
