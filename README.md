@@ -71,28 +71,28 @@ Go to the [Rent MY Stuff API](https://github.com/ArjayS/rent_my_stuff_api) and f
 
 #### Unauthenticated User Browsing the Site and Logging In as a Renter
 
-![Unauthenticated User Browsing the Site and Logging In as a Renter]()
+![Unauthenticated User Browsing the Site and Logging In as a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%201.%20Unauthenticated%20User%20signing%20in.gif)
 
 #### Authenticated User Searching for an item and placing a bid as a Renter
 
-![Authenticated User Searching for an item and placing a bid as a Renter]()
+![Authenticated User Searching for an item and placing a bid as a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%202.%20Authenticated%20User%20searching%20an%20item%20and%20placing%20a%20bid.gif)
 
 #### Authenticated User (Owner) Accepting a Bid made by a Renter
 
-![Authenticated User (Owner) Accepting a Bid made by a Renter]()
+![Authenticated User (Owner) Accepting a Bid made by a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%203.%20Authenticated%20Owner%20Accepting%20a%20Bid%20by%20a%20Renter.gif)
 
 #### Authenticated User (Owner) Placing a Review to the Renter
 
-![Authenticated User (Owner) Placing a Review to the Renter]()
+![Authenticated User (Owner) Placing a Review to the Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%204.%20Owner%20Leaving%20a%20comment%20to%20a%20renter.gif)
 
 #### Authenticated User (Renter) Checking a Review made by an Owner of an item they rented
 
-![Authenticated User (Renter) Checking a Review made by an Owner of an item they rented]()
+![Authenticated User (Renter) Checking a Review made by an Owner of an item they rented](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%205.%20Renter%20checking%20a%20review%20made%20by%20an%20owner.gif)
 
 #### Authenticated User Placing an Item Review on an Item as a Renter
 
-![Authenticated User Placing an Item Review on an Item as a Renter]()
+![Authenticated User Placing an Item Review on an Item as a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%206.%20Renter%20making%20an%20item%20review.gif)
 
 #### Authenticated User Adding an Item for rent
 
-![Authenticated User Adding an Item for rent]()
+![Authenticated User Adding an Item for rent](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%207.%20Authenticated%20User%20Adding%20an%20item.gif)
