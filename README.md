@@ -79,7 +79,7 @@ Go to the [Rent MY Stuff API](https://github.com/ArjayS/rent_my_stuff_api) and f
 
 #### Authenticated User (Owner) Accepting a Bid made by a Renter
 
-![Authenticated User (Owner) Accepting a Bid made by a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF%203.%20Authenticated%20Owner%20Accepting%20a%20Bid%20by%20a%20Renter.gif)
+![Authenticated User (Owner) Accepting a Bid made by a Renter](https://github.com/ArjayS/rent_my_stuff/blob/main/src/gif/GIF_3.%20Authenticated%20Owner%20Accepting%20a%20Bid%20by%20a%20Renter.gif)
 
 #### Authenticated User (Owner) Placing a Review to the Renter
 
